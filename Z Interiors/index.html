@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Z Home Interiors | Design & Decor</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons (Required for Hamburger & Close Icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    /* ==========================================================================
+       1. LUXURY PALETTE
+       ========================================================================== */
+    :root {
+      /* Metallic Gold Palette */
+      --gold-primary: #D4AF37;
+      --gold-light: #F3E0B5;
+      --gold-champagne: #E5C378;
+      --gold-dark: #9E7B4F;
+      --gold-glow: rgba(212, 175, 55, 0.28);
+      
+      /* Midnight Slate Dark Base */
+      --bg-dark: #0B1017;
+      --bg-surface: rgba(11, 16, 23, 0.78);
+      --border-gold: rgba(229, 195, 120, 0.35);
+      --border-light: rgba(255, 255, 255, 0.1);
+      
+      /* Typography Colors */
+      --text-bright: #FFFFFF;
+      --text-soft: #CBD5E1;
+      --text-muted: #94A3B8;
+      
+      --font-heading: 'Cinzel', serif;
+      --font-subheading: 'Montserrat', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      width: 100%;
+      font-family: var(--font-body);
+      background-color: var(--bg-dark);
+      color: var(--text-bright);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* ==========================================================================
+       2. BACKGROUND SLIDESHOW & OVERLAY
+       ========================================================================== */
+    .slideshow-container {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-repeat: no-repeat;
+      opacity: 0;
+      animation: slideFade 30s infinite ease-in-out;
+      filter: contrast(105%) brightness(82%) saturate(108%);
+      will-change: opacity, transform;
+    }
+
+    .slide-1 {
+      background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1920&q=80');
+      background-position: center center;
+      animation-delay: 0s;
+    }
+    
+    .slide-2 {
+      background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1920&q=80');
+      background-position: center center;
+      animation-delay: 5s;
+    }
+    
+    .slide-3 {
+      background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1920&q=80');
+      background-position: center center;
+      animation-delay: 10s;
+    }
+    
+    .slide-4 {
+      background-image: url('https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=1920&q=80');
+      background-position: center center;
+      animation-delay: 15s;
+    }
+
+    .slide-5 {
+      background-image: url('https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1920&q=80');
+      background-position: center center;
+      animation-delay: 20s;
+    }
+
+    .slide-6 {
+      background-image: url('https://images.unsplash.com/photo-1558036117-15d82a90b9b1?auto=format&fit=crop&w=1920&q=80');
+      background-position: center center;
+      animation-delay: 25s;
+    }
+
+    @keyframes slideFade {
+      0% { opacity: 0; transform: scale(1); }
+      3.3% { opacity: 1; }
+      16.6% { opacity: 1; }
+      20% { opacity: 0; transform: scale(1.05); }
+      100% { opacity: 0; transform: scale(1); }
+    }
+
+    .bg-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2;
+      background: radial-gradient(circle at 50% 50%, rgba(11, 16, 23, 0.72) 0%, rgba(11, 16, 23, 0.35) 70%, rgba(11, 16, 23, 0.2) 100%);
+      pointer-events: none;
+    }
+
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(140px);
+      z-index: 3;
+      pointer-events: none;
+      animation: orbFloat 22s infinite alternate ease-in-out;
+    }
+
+    .orb-1 {
+      top: -10%;
+      right: -5%;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, var(--gold-glow), transparent 70%);
+    }
+
+    .orb-2 {
+      bottom: -15%;
+      left: -5%;
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, rgba(158, 123, 79, 0.18), transparent 70%);
+    }
+
+    /* ==========================================================================
+       3. NAVIGATION BAR (DESKTOP)
+       ========================================================================== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(11, 16, 23, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-light);
+      padding: 0.9rem 0;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo-icon {
+      width: 32px;
+      height: 32px;
+      filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.4));
+    }
+
+    .nav-logo-text {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      background: linear-gradient(90deg, #FFFFFF 0%, #FFF5D8 35%, #E5C378 70%, #D4AF37 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 10px rgba(212, 175, 55, 0.25);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      position: relative;
+      text-decoration: none;
+      color: var(--text-soft);
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      padding: 0.5rem 0;
+      transition: var(--transition-smooth);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--gold-champagne);
+      text-shadow: 0 0 8px rgba(229, 195, 120, 0.4);
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold-champagne), transparent);
+      box-shadow: 0 0 8px var(--gold-champagne);
+      border-radius: 2px;
+    }
+
+    /* ==========================================================================
+       4. HAMBURGER & SLIDE-OUT DRAWER SYSTEM
+       ========================================================================== */
+    .hamburger-btn,
+    .drawer-close-item,
+    .drawer-backdrop {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .nav-container {
+        padding: 0.8rem 1.5rem;
+      }
+
+      /* Gold Hamburger Button */
+      .hamburger-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(212, 175, 55, 0.12);
+        border: 1px solid var(--border-gold);
+        color: var(--gold-champagne);
+        font-size: 1.35rem;
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: var(--transition-smooth);
+      }
+
+      .hamburger-btn:hover {
+        background: var(--gold-primary);
+        color: #0B1017;
+      }
+
+      /* Slide-out Drawer */
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -320px;
+        width: 290px;
+        height: 100vh;
+        background: rgba(11, 16, 23, 0.98);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border-left: 1px solid var(--border-gold);
+        box-shadow: -15px 0 35px rgba(0, 0, 0, 0.75);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem 1.8rem;
+        gap: 1.2rem;
+        z-index: 1001;
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        overflow-y: auto;
+      }
+
+      .nav-links.open {
+        right: 0;
+      }
+
+      .drawer-close-item {
+        display: block;
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+
+      .drawer-close-btn {
+        background: transparent;
+        border: none;
+        color: var(--gold-champagne);
+        font-size: 2rem;
+        cursor: pointer;
+        line-height: 1;
+        float: right;
+      }
+
+      .nav-item {
+        width: 100%;
+      }
+
+      .nav-link {
+        font-size: 1.1rem;
+        padding: 0.7rem 0;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      /* Backdrop Overlay */
+      .drawer-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(4px);
+        z-index: 1000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .drawer-backdrop.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .orb {
+        filter: blur(80px);
+        opacity: 0.5;
+      }
+    }
+
+    /* ==========================================================================
+       5. HERO CARD
+       ========================================================================== */
+    .hero-wrapper {
+      position: relative;
+      z-index: 10;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 7.5rem 1.5rem 3rem;
+      text-align: center;
+    }
+
+    .glass-card {
+      background: var(--bg-surface);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-gold);
+      padding: 2.8rem 2rem;
+      border-radius: 24px;
+      max-width: 580px;
+      width: 100%;
+      box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.7),
+        0 0 35px rgba(212, 175, 55, 0.12),
+        inset 0 1px 2px rgba(255, 255, 255, 0.2);
+      animation: cardEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      position: relative;
+    }
+
+    .brand-logo-container {
+      margin: 0 auto 1rem auto;
+      max-width: 360px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-logo-svg {
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 6px 18px rgba(212, 175, 55, 0.35));
+    }
+
+    .quote-box {
+      margin-top: 0.6rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .main-quote {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      font-size: clamp(0.88rem, 1.6vw, 1.05rem);
+      font-weight: 700;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      font-family: var(--font-subheading);
+    }
+
+    .main-quote span {
+      background: linear-gradient(135deg, #FFFFFF 0%, #F3E0B5 50%, #D4AF37 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 10px rgba(212, 175, 55, 0.25);
+    }
+
+    .tag-divider {
+      width: 24px;
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, var(--gold-champagne), transparent);
+      box-shadow: 0 0 8px rgba(229, 195, 120, 0.8);
+      border-radius: 2px;
+    }
+
+    .tagline-desc {
+      margin-top: 1rem;
+      font-size: 0.92rem;
+      color: var(--text-soft);
+      line-height: 1.55;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 400;
+      letter-spacing: 0.2px;
+    }
+
+    .welcome-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      background: linear-gradient(135deg, #D4AF37 0%, #B89355 50%, #8A6836 100%);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 0.96rem;
+      letter-spacing: 0.8px;
+      padding: 1rem 2.2rem;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 
+        0 12px 25px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(212, 175, 55, 0.3);
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .welcome-btn::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        60deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.45) 50%,
+        transparent 70%
+      );
+      transform: rotate(30deg) translateX(-100%);
+      transition: transform 0.8s ease;
+    }
+
+    .welcome-btn:hover::before {
+      transform: rotate(30deg) translateX(100%);
+    }
+
+    .welcome-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 
+        0 18px 35px rgba(0, 0, 0, 0.6),
+        0 0 30px rgba(229, 195, 120, 0.5);
+      background: linear-gradient(135deg, #E5C378 0%, #D4AF37 100%);
+    }
+
+    .welcome-btn svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s ease;
+    }
+
+    .welcome-btn:hover svg {
+      transform: translateX(4px);
+    }
+
+    /* ANIMATIONS */
+    @keyframes orbFloat {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(30px, -30px); }
+    }
+
+    @keyframes cardEntrance {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .glass-card {
+        padding: 2.2rem 1.2rem;
+      }
+      .brand-logo-container {
+        max-width: 290px;
+      }
+      .main-quote {
+        gap: 0.6rem;
+        letter-spacing: 2px;
+      }
+      .tag-divider {
+        width: 14px;
+      }
+      .tagline-desc {
+        font-size: 0.85rem;
+      }
+      .welcome-btn {
+        padding: 0.9rem 1.6rem;
+        font-size: 0.88rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BACKGROUND SLIDESHOW -->
+  <div class="slideshow-container">
+    <div class="slide slide-1"></div>
+    <div class="slide slide-2"></div>
+    <div class="slide slide-3"></div>
+    <div class="slide slide-4"></div>
+    <div class="slide slide-5"></div>
+    <div class="slide slide-6"></div>
+  </div>
+
+  <!-- AMBIENT OVERLAY & GLOW ORBS -->
+  <div class="bg-overlay"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <!-- NAVIGATION BAR -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <svg class="nav-logo-icon" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="navGold" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FFF0C7" />
+              <stop offset="50%" stop-color="#D4AF37" />
+              <stop offset="100%" stop-color="#8C6A32" />
+            </linearGradient>
+          </defs>
+          <path d="M25 20 H120 L108 36 H50 L25 20 Z" fill="url(#navGold)" />
+          <path d="M108 36 L20 120 H40 L118 36 Z" fill="url(#navGold)" />
+          <path d="M20 120 L120 120 L120 134 L5 134 L108 36 H90 Z" fill="url(#navGold)" />
+          <path d="M25 70 L60 42 L70 50 L38 78 Z" fill="url(#navGold)" />
+          <path d="M60 42 L100 74 L92 82 L60 55 Z" fill="url(#navGold)" />
+          <path d="M60 55 V120 H50 V64 Z" fill="url(#navGold)" />
+          <path d="M96 72 L125 97 L117 104 L92 80 Z" fill="url(#navGold)" />
+          <rect x="90" y="86" width="8" height="8" fill="url(#navGold)" rx="1"/>
+          <rect x="101" y="86" width="8" height="8" fill="url(#navGold)" rx="1"/>
+          <rect x="90" y="97" width="8" height="8" fill="url(#navGold)" rx="1"/>
+          <rect x="101" y="97" width="8" height="8" fill="url(#navGold)" rx="1"/>
+        </svg>
+        <span class="nav-logo-text">Z HOME INTERIORS</span>
+      </a>
+
+      <!-- 1. HAMBURGER BUTTON (Hidden on laptops, visible on mobile) -->
+      <button class="hamburger-btn" id="menuToggle" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <!-- 2. NAV LINKS (Horizontal on laptop, slide-out drawer on mobile) -->
+      <ul class="nav-links" id="navMenu">
+        <!-- Close icon inside the drawer on mobile -->
+        <li class="drawer-close-item">
+          <button class="drawer-close-btn" id="menuClose" aria-label="Close menu">&times;</button>
+        </li>
+        <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+        <li class="nav-item"><a href="company.html" class="nav-link">Company</a></li>
+        <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- 3. DIMMED BACKDROP FOR MOBILE -->
+    <div class="drawer-backdrop" id="menuBackdrop"></div>
+  </header>
+
+  <!-- MAIN HERO SECTION -->
+  <main class="hero-wrapper">
+    <div class="glass-card">
+      
+      <!-- BRAND LOGO -->
+      <div class="brand-logo-container">
+        <svg class="brand-logo-svg" viewBox="0 0 500 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FFF0C7" />
+              <stop offset="45%" stop-color="#D4AF37" />
+              <stop offset="100%" stop-color="#8C6A32" />
+            </linearGradient>
+            <linearGradient id="textGoldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#FFFFFF" />
+              <stop offset="50%" stop-color="#F3E0B5" />
+              <stop offset="100%" stop-color="#D4AF37" />
+            </linearGradient>
+          </defs>
+
+          <!-- Gold 'Z' House Icon Structure -->
+          <g transform="translate(10, -5)">
+            <path d="M185 24 H300 L288 38 H220 L185 24 Z" fill="url(#goldGradient)" />
+            <path d="M288 38 L192 136 H212 L298 38 Z" fill="url(#goldGradient)" />
+            <path d="M192 136 L300 136 L300 150 L175 150 L288 38 H268 Z" fill="url(#goldGradient)" />
+            <path d="M185 88 L225 56 L237 66 L200 98 Z" fill="url(#goldGradient)" />
+            <path d="M225 56 L272 94 L263 103 L225 72 Z" fill="url(#goldGradient)" />
+            <path d="M225 72 V136 H215 V82 Z" fill="url(#goldGradient)" />
+            <path d="M268 92 L302 122 L292 130 L262 102 Z" fill="url(#goldGradient)" />
+
+            <rect x="258" y="106" width="9" height="9" fill="url(#goldGradient)" rx="1"/>
+            <rect x="270" y="106" width="9" height="9" fill="url(#goldGradient)" rx="1"/>
+            <rect x="258" y="118" width="9" height="9" fill="url(#goldGradient)" rx="1"/>
+            <rect x="270" y="118" width="9" height="9" fill="url(#goldGradient)" rx="1"/>
+          </g>
+
+          <text x="250" y="180" text-anchor="middle" fill="url(#textGoldGradient)" font-family="'Montserrat', sans-serif" font-size="28" font-weight="800" letter-spacing="5">
+            HOME INTERIORS
+          </text>
+
+          <line x1="140" y1="196" x2="225" y2="196" stroke="url(#goldGradient)" stroke-width="1.8" stroke-linecap="round"/>
+          <polygon points="250,193 254,196 250,199 246,196" fill="url(#goldGradient)" />
+          <line x1="275" y1="196" x2="360" y2="196" stroke="url(#goldGradient)" stroke-width="1.8" stroke-linecap="round"/>
+
+          <text x="250" y="218" text-anchor="middle" fill="#E2E8F0" font-family="'Montserrat', sans-serif" font-size="13" font-weight="600" letter-spacing="6">
+            DESIGN &amp; DECOR
+          </text>
+        </svg>
+      </div>
+
+      <!-- TAGLINE & DESCRIPTION -->
+      <div class="quote-box">
+        <div class="main-quote">
+          <span>CLEAN</span>
+          <div class="tag-divider"></div>
+          <span>BRIGHT</span>
+          <div class="tag-divider"></div>
+          <span>COZY</span>
+        </div>
+        
+        <p class="tagline-desc">
+          Crafting halls, bedrooms, modular kitchens, custom wardrobes, modern bathrooms, and gardens — turning everyday spaces into beautiful, functional homes.
+        </p>
+      </div>
+
+      <!-- WELCOME BUTTON -->
+      <a href="company.html" class="welcome-btn">
+        Welcome to Z Home Interiors
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+
+    </div>
+  </main>
+
+  <!-- JAVASCRIPT CONTROLLER -->
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const menuClose = document.getElementById('menuClose');
+    const navMenu = document.getElementById('navMenu');
+    const menuBackdrop = document.getElementById('menuBackdrop');
+
+    function openDrawer() {
+      if (navMenu && menuBackdrop) {
+        navMenu.classList.add('open');
+        menuBackdrop.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeDrawer() {
+      if (navMenu && menuBackdrop) {
+        navMenu.classList.remove('open');
+        menuBackdrop.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    if (menuToggle && menuClose && navMenu && menuBackdrop) {
+      menuToggle.addEventListener('click', openDrawer);
+      menuClose.addEventListener('click', closeDrawer);
+      menuBackdrop.addEventListener('click', closeDrawer);
+    }
+  </script>
+</body>
+</html>

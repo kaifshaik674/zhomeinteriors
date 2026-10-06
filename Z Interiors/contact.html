@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Z Home Interiors</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* ==========================================================================
+       1. LUXURY PALETTE & RESET
+       ========================================================================== */
+    :root {
+      --gold-primary: #D4AF37;
+      --gold-light: #F3E0B5;
+      --gold-champagne: #E5C378;
+      --gold-dark: #9E7B4F;
+      --gold-glow: rgba(212, 175, 55, 0.28);
+      
+      --bg-dark: #0B1017;
+      --bg-surface: rgba(11, 16, 23, 0.78);
+      --bg-card: rgba(15, 21, 30, 0.88);
+      --border-gold: rgba(229, 195, 120, 0.35);
+      --border-light: rgba(255, 255, 255, 0.1);
+      
+      --text-bright: #FFFFFF;
+      --text-soft: #CBD5E1;
+      --text-muted: #94A3B8;
+      
+      --font-heading: 'Cinzel', serif;
+      --font-subheading: 'Montserrat', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      min-height: 100%;
+      width: 100%;
+      font-family: var(--font-body);
+      background-color: var(--bg-dark);
+      color: var(--text-bright);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    a {
+      color: var(--gold-champagne);
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    a:hover {
+      color: var(--gold-light);
+      text-shadow: 0 0 8px rgba(229, 195, 120, 0.4);
+    }
+
+    /* ==========================================================================
+       2. BACKGROUND SLIDESHOW & OVERLAYS
+       ========================================================================== */
+    .slideshow-container {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-repeat: no-repeat;
+      opacity: 0;
+      animation: slideFade 30s infinite ease-in-out;
+      filter: contrast(105%) brightness(78%) saturate(108%);
+      will-change: opacity, transform;
+    }
+
+    .slide-1 {
+      background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1920&q=80');
+      background-position: center;
+      animation-delay: 0s;
+    }
+    .slide-2 {
+      background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1920&q=80');
+      background-position: center;
+      animation-delay: 5s;
+    }
+    .slide-3 {
+      background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1920&q=80');
+      background-position: center;
+      animation-delay: 10s;
+    }
+    .slide-4 {
+      background-image: url('https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=1920&q=80');
+      background-position: center;
+      animation-delay: 15s;
+    }
+    .slide-5 {
+      background-image: url('https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1920&q=80');
+      background-position: center;
+      animation-delay: 20s;
+    }
+    .slide-6 {
+      background-image: url('https://images.unsplash.com/photo-1558036117-15d82a90b9b1?auto=format&fit=crop&w=1920&q=80');
+      background-position: center;
+      animation-delay: 25s;
+    }
+
+    @keyframes slideFade {
+      0% { opacity: 0; transform: scale(1); }
+      3.3% { opacity: 1; }
+      16.6% { opacity: 1; }
+      20% { opacity: 0; transform: scale(1.05); }
+      100% { opacity: 0; transform: scale(1); }
+    }
+
+    .bg-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2;
+      background: radial-gradient(circle at 50% 50%, rgba(11, 16, 23, 0.88) 0%, rgba(11, 16, 23, 0.72) 70%, rgba(11, 16, 23, 0.58) 100%);
+      pointer-events: none;
+    }
+
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(140px);
+      z-index: 3;
+      pointer-events: none;
+      animation: orbFloat 22s infinite alternate ease-in-out;
+    }
+
+    .orb-1 {
+      top: -10%;
+      right: -5%;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, var(--gold-glow), transparent 70%);
+    }
+
+    .orb-2 {
+      bottom: -15%;
+      left: -5%;
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, rgba(158, 123, 79, 0.18), transparent 70%);
+    }
+
+    /* ==========================================================================
+       3. NAVIGATION BAR (DESKTOP)
+       ========================================================================== */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(11, 16, 23, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-light);
+      padding: 0.9rem 0;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo-icon {
+      width: 32px;
+      height: 32px;
+      filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.4));
+      flex-shrink: 0;
+    }
+
+    .nav-logo-text {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      background: linear-gradient(90deg, #FFFFFF 0%, #FFF5D8 35%, #E5C378 70%, #D4AF37 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 10px rgba(212, 175, 55, 0.25);
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      position: relative;
+      color: var(--text-soft);
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      padding: 0.5rem 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition-smooth);
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--gold-champagne);
+      text-shadow: 0 0 8px rgba(229, 195, 120, 0.4);
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold-champagne), transparent);
+      box-shadow: 0 0 8px var(--gold-champagne);
+      border-radius: 2px;
+    }
+
+    .whatsapp-btn-nav {
+      background: #10B981;
+      color: #FFFFFF !important;
+      padding: 0.5rem 1.1rem;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+      transition: var(--transition-smooth);
+      white-space: nowrap;
+    }
+
+    .whatsapp-btn-nav:hover {
+      background: #059669;
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       4. HAMBURGER & SLIDE-OUT DRAWER SYSTEM (FIXED TRANSFORM OVERFLOW BUG)
+       ========================================================================== */
+    .hamburger-btn,
+    .drawer-close-item,
+    .drawer-backdrop {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .nav-container {
+        padding: 0.8rem 1rem;
+      }
+
+      .hamburger-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(212, 175, 55, 0.12);
+        border: 1px solid var(--border-gold);
+        color: var(--gold-champagne);
+        font-size: 1.35rem;
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: var(--transition-smooth);
+      }
+
+      .hamburger-btn:hover {
+        background: var(--gold-primary);
+        color: #0B1017;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 280px;
+        max-width: 85vw;
+        height: 100vh;
+        background: rgba(11, 16, 23, 0.98);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border-left: 1px solid var(--border-gold);
+        box-shadow: -15px 0 35px rgba(0, 0, 0, 0.75);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem 1.5rem;
+        gap: 1.2rem;
+        z-index: 1001;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        overflow-y: auto;
+      }
+
+      .nav-links.open {
+        transform: translateX(0);
+      }
+
+      .drawer-close-item {
+        display: block;
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+
+      .drawer-close-btn {
+        background: transparent;
+        border: none;
+        color: var(--gold-champagne);
+        font-size: 2rem;
+        cursor: pointer;
+        line-height: 1;
+        float: right;
+      }
+
+      .nav-item {
+        width: 100%;
+      }
+
+      .nav-link {
+        font-size: 1.1rem;
+        padding: 0.7rem 0;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .whatsapp-btn-nav {
+        width: 100%;
+        justify-content: center;
+        margin-top: 1rem;
+        padding: 0.8rem 1rem;
+      }
+
+      .drawer-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(4px);
+        z-index: 1000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .drawer-backdrop.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .orb {
+        filter: blur(80px);
+        opacity: 0.5;
+      }
+    }
+
+    /* ==========================================================================
+       5. CONTACT PAGE CONTENT
+       ========================================================================== */
+    .content-wrapper {
+      position: relative;
+      z-index: 10;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+      width: 100%;
+    }
+
+    .glass-panel {
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-gold);
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      box-shadow: 
+        0 25px 60px rgba(0, 0, 0, 0.7),
+        0 0 30px rgba(212, 175, 55, 0.12),
+        inset 0 1px 2px rgba(255, 255, 255, 0.15);
+      margin-top: 80px; 
+  margin-bottom: 2rem;
+      width: 100%;
+      min-width: 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: 2px;
+      background: linear-gradient(135deg, #FFFFFF 0%, #F3E0B5 50%, #D4AF37 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.6rem;
+    }
+
+    .section-subtitle {
+      font-size: clamp(0.9rem, 2vw, 1.05rem);
+      color: var(--gold-champagne);
+      letter-spacing: 0.5px;
+      font-family: var(--font-subheading);
+      font-weight: 600;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2.5rem;
+      align-items: start;
+      width: 100%;
+    }
+
+    .contact-info-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      min-width: 0;
+    }
+
+    .lead-text {
+      color: var(--text-soft);
+      line-height: 1.7;
+      font-size: 0.98rem;
+    }
+
+    .info-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      font-size: 0.94rem;
+      color: var(--text-soft);
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    .info-item strong {
+      color: var(--gold-light);
+      display: inline-block;
+      min-width: 72px;
+    }
+
+    .info-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid var(--border-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-champagne);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .gold-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #D4AF37 0%, #B89355 50%, #8A6836 100%);
+      color: #FFFFFF !important;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.6px;
+      padding: 0.95rem 1.8rem;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.25);
+      transition: var(--transition-smooth);
+      cursor: pointer;
+      text-align: center;
+      width: 100%;
+    }
+
+    .gold-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6), 0 0 25px rgba(229, 195, 120, 0.45);
+      background: linear-gradient(135deg, #E5C378 0%, #D4AF37 100%);
+    }
+
+    .gold-btn.whatsapp-btn {
+      background: linear-gradient(135deg, #25D366 0%, #1EAA52 100%);
+      border-color: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.25);
+    }
+
+    .gold-btn.whatsapp-btn:hover {
+      background: linear-gradient(135deg, #2cf074 0%, #25D366 100%);
+      box-shadow: 0 14px 30px rgba(37, 211, 102, 0.4);
+    }
+
+    .feature-card {
+      background: rgba(11, 16, 23, 0.6);
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      padding: 1.4rem;
+      transition: var(--transition-smooth);
+      margin-bottom: 1.4rem;
+      width: 100%;
+    }
+
+    .feature-card:hover {
+      border-color: var(--border-gold);
+      box-shadow: 0 8px 24px rgba(212, 175, 55, 0.1);
+    }
+
+    .card-heading {
+      font-family: var(--font-subheading);
+      font-size: 1.05rem;
+      color: var(--gold-light);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .locations-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 0.5rem;
+    }
+
+    .location-badge {
+      background: rgba(212, 175, 55, 0.12);
+      color: var(--gold-champagne);
+      border: 1px solid rgba(229, 195, 120, 0.25);
+      padding: 0.35rem 0.85rem;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-soft);
+      font-size: 0.88rem;
+      padding: 0.4rem 0;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+      gap: 10px;
+    }
+
+    .hours-row:last-child {
+      border-bottom: none;
+    }
+
+    /* ==========================================================================
+       6. BOTTOM GRID: FORM & GOOGLE MAP
+       ========================================================================== */
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      width: 100%;
+      align-items: stretch;
+    }
+
+    .form-panel {
+      margin-bottom: 0 !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .form-group {
+      margin-bottom: 1.1rem;
+      width: 100%;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      background: rgba(11, 16, 23, 0.7);
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      color: var(--text-bright);
+      font-family: var(--font-body);
+      font-size: 1rem; /* Fixed zoom issue on mobile */
+      outline: none;
+      transition: var(--transition-smooth);
+      display: block;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: var(--gold-champagne);
+      box-shadow: 0 0 12px rgba(212, 175, 55, 0.25);
+    }
+
+    .form-group select option {
+      background: #0B1017;
+      color: #FFF;
+    }
+
+    /* MAP SECTION */
+    .map-card-section {
+      margin-bottom: 0 !important;
+      padding: 1.2rem !important;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .map-frame-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 380px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border-gold);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      background-color: #0B1017;
+    }
+
+    .map-frame-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100% !important;
+      height: 100% !important;
+      border: 0;
+      display: block;
+    }
+
+    /* FLOATING QUICK WHATSAPP BUTTON */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      font-size: 1.8rem;
+      z-index: 999;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+      transition: var(--transition-smooth);
+    }
+
+    .floating-whatsapp:hover {
+      transform: scale(1.1) translateY(-3px);
+      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
+      color: #FFFFFF;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border-light);
+      padding: 2.2rem 1rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      background: rgba(11, 16, 23, 0.95);
+      position: relative;
+      z-index: 10;
+    }
+
+    @keyframes orbFloat {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(30px, -30px); }
+    }
+
+    /* ==========================================================================
+       7. MOBILE FIXES & PERFORMANCE OPTIMIZATIONS
+       ========================================================================== */
+    @media (max-width: 900px) {
+      .slide {
+        animation: none; /* Disable keyframe animation overhead on mobile devices */
+        opacity: 0;
+      }
+      .slide-1 {
+        opacity: 1; /* Fallback to single static background on mobile */
+      }
+
+      .content-wrapper {
+        padding: 2rem 1rem 3.5rem;
+      }
+
+      .contact-grid,
+      .bottom-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        width: 100%;
+      }
+
+      .glass-panel {
+        padding: 1.8rem 1.2rem;
+        border-radius: 20px;
+      }
+
+      .form-group input,
+      .form-group select {
+        font-size: 16px; /* Strict 16px prevents mobile Safari viewport auto-zoom */
+        padding: 0.8rem 0.9rem;
+      }
+
+      .map-card-section {
+        padding: 0.8rem !important;
+      }
+
+      .map-frame-container {
+        min-height: 300px;
+        height: 300px;
+        border-radius: 14px;
+      }
+
+      .hours-row {
+        font-size: 0.84rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .glass-panel {
+        padding: 1.4rem 1rem;
+      }
+
+      .map-frame-container {
+        min-height: 270px;
+        height: 270px;
+      }
+
+      .nav-logo-text {
+        font-size: 1.1rem;
+        letter-spacing: 1.5px;
+      }
+
+      .floating-whatsapp {
+        bottom: 18px;
+        right: 18px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BACKGROUND SLIDESHOW -->
+  <div class="slideshow-container">
+    <div class="slide slide-1"></div>
+    <div class="slide slide-2"></div>
+    <div class="slide slide-3"></div>
+    <div class="slide slide-4"></div>
+    <div class="slide slide-5"></div>
+    <div class="slide slide-6"></div>
+  </div>
+
+  <!-- AMBIENT OVERLAY & ORBS -->
+  <div class="bg-overlay"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <!-- NAVIGATION BAR -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <svg class="nav-logo-icon" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="navGold" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FFF0C7" />
+              <stop offset="50%" stop-color="#D4AF37" />
+              <stop offset="100%" stop-color="#8C6A32" />
+            </linearGradient>
+          </defs>
+          <path d="M25 20 H120 L108 36 H50 L25 20 Z" fill="url(#navGold)" />
+          <path d="M108 36 L20 120 H40 L118 36 Z" fill="url(#navGold)" />
+          <path d="M20 120 L120 120 L120 134 L5 134 L108 36 H90 Z" fill="url(#navGold)" />
+          <path d="M25 70 L60 42 L70 50 L38 78 Z" fill="url(#navGold)" />
+          <path d="M60 42 L100 74 L92 82 L60 55 Z" fill="url(#navGold)" />
+          <path d="M60 55 V120 H50 V64 Z" fill="url(#navGold)" />
+          <path d="M96 72 L125 97 L117 104 L92 80 Z" fill="url(#navGold)" />
+          <rect x="90" y="86" width="8" height="8" fill="url(#navGold)" rx="1"/>
+          <rect x="101" y="86" width="8" height="8" fill="url(#navGold)" rx="1"/>
+          <rect x="90" y="97" width="8" height="8" fill="url(#navGold)" rx="1"/>
+          <rect x="101" y="97" width="8" height="8" fill="url(#navGold)" rx="1"/>
+        </svg>
+        <span class="nav-logo-text">Z HOME INTERIORS</span>
+      </a>
+
+      <!-- HAMBURGER BUTTON -->
+      <button class="hamburger-btn" id="menuToggle" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <!-- NAVIGATION DRAWER -->
+      <ul class="nav-links" id="navMenu">
+        <li class="drawer-close-item">
+          <button class="drawer-close-btn" id="menuClose" aria-label="Close menu">&times;</button>
+        </li>
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="company.html" class="nav-link">Company</a></li>
+        <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link active">Contact</a></li>
+        <li class="nav-item">
+          <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20would%20like%20to%20inquire%20about%20interior%20design%20services." target="_blank" rel="noopener noreferrer" class="whatsapp-btn-nav">
+            <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- DIMMED BACKDROP FOR MOBILE -->
+    <div class="drawer-backdrop" id="menuBackdrop"></div>
+  </header>
+
+  <!-- MAIN CONTACT CONTENT -->
+  <main class="content-wrapper">
+
+    <!-- PRIMARY CONTACT DETAILS CARD -->
+    <section id="contact" class="glass-panel">
+      <div class="section-header">
+        <h1 class="section-title">GET IN TOUCH</h1>
+        <p class="section-subtitle">Schedule a consultation with Sameer S for your next interior project.</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Direct Contact Column -->
+        <div class="contact-info-col">
+          <p class="lead-text">
+            Whether you are designing a single room or planning a complete home interior overhaul, our team is here to guide you through every step.
+          </p>
+
+          <ul class="info-list">
+            <li class="info-item">
+              <div class="info-icon-box">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div>
+                <strong>Location:</strong><br>
+                Z Home Interiors, Old Srinivasa Centre, near Khaleel Theatre, Srinivas Nagar, Sanjeev Nagar, Nandyala, Andhra Pradesh 518501
+                <br>
+                <a href="https://www.google.com/maps/place/Z+Home+Interiors/@15.4848103,78.4861592,17z" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> Open in Google Maps App
+                </a>
+              </div>
+            </li>
+
+            <li class="info-item">
+              <div class="info-icon-box">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div>
+                <strong>Email:</strong><br>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=shaiksameer6208@gmail.com" target="_blank" rel="noopener noreferrer">
+                  shaiksameer6208@gmail.com
+                </a>
+              </div>
+            </li>
+
+            <li class="info-item">
+              <div class="info-icon-box">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div>
+                <strong>Phone:</strong><br>
+                <a href="tel:+919182593313">+91 91825 93313</a> &nbsp;|&nbsp; 
+                <a href="tel:+917013040343">+91 70130 40343</a>
+              </div>
+            </li>
+          </ul>
+
+          <div class="button-group">
+            <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20want%20to%20discuss%20an%20interior%20project." target="_blank" rel="noopener noreferrer" class="gold-btn whatsapp-btn">
+              <i class="fa-brands fa-whatsapp"></i> Direct WhatsApp Chat
+            </a>
+          </div>
+        </div>
+
+        <!-- Regional Coverage & Quick Actions -->
+        <div class="contact-info-col">
+          <div class="feature-card">
+            <div class="card-heading">
+              <i class="fa-solid fa-map-location-dot"></i> Service Locations
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-soft); line-height: 1.6;">
+              We undertake on-site turnkey interior projects, modular fittings, and renovations across:
+            </p>
+            <div class="locations-badges">
+              <span class="location-badge">Nandyal</span>
+              <span class="location-badge">Kurnool</span>
+              <span class="location-badge">Giddalur</span>
+              <span class="location-badge">Markapur</span>
+              <span class="location-badge">Nandikotkur</span>
+              <span class="location-badge">Atmakur</span>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="card-heading">
+              <i class="fa-regular fa-clock"></i> Working Hours
+            </div>
+            <div class="hours-row">
+              <span>Monday – Saturday:</span>
+              <span>9:30 AM – 8:30 PM</span>
+            </div>
+            <div class="hours-row">
+              <span>Sunday:</span>
+              <span>10:30 AM – 5:00 PM</span>
+            </div>
+          </div>
+
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=shaiksameer6208@gmail.com" target="_blank" rel="noopener noreferrer" class="gold-btn">
+            <i class="fa-solid fa-envelope"></i> Send Email
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: FAST INQUIRY FORM & LIVE MAP -->
+    <div class="bottom-grid">
+      <!-- Instant Consultation Booking Form -->
+      <section class="glass-panel form-panel">
+        <h3 style="font-family: var(--font-subheading); font-size: 1.3rem; color: var(--gold-light); margin-bottom: 0.5rem;">
+          <i class="fa-regular fa-paper-plane"></i> Request a Site Visit
+        </h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+          Leave your details and Sameer S will get in touch with you directly to schedule an on-site evaluation.
+        </p>
+
+        <form id="siteVisitForm" onsubmit="sendSiteVisitToWhatsApp(event)">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="Mohammad..." required autocomplete="name">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone / WhatsApp Number</label>
+            <input type="tel" id="phone" placeholder="+91 ..." required autocomplete="tel">
+          </div>
+
+          <div class="form-group">
+            <label for="service">Space Type</label>
+            <select id="service">
+              <option value="Complete Home Interior">Full Home Turnkey Interior</option>
+              <option value="Modular Kitchen & Crockery">Modular Kitchen & Dining</option>
+              <option value="Bedroom & Custom Wardrobes">Master Bedroom & Wardrobes</option>
+              <option value="Living Room & False Ceiling">Living Room & False Ceiling</option>
+              <option value="Commercial / Office Space">Commercial / Office Interiors</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="location">Location / Town</label>
+            <input type="text" id="location" placeholder="e.g. Nandyal, Kurnool" required>
+          </div>
+
+          <button type="submit" class="gold-btn" style="margin-top: 0.5rem; border: none; cursor: pointer;">
+            Submit Request <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </form>
+      </section>
+
+      <!-- Embedded Responsive Google Map -->
+      <section class="glass-panel map-card-section">
+        <div class="map-frame-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2464.298911079777!2d78.4861592087276!3d15.484810310182203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb5ad7c3e231317%3A0x4f27ec03f0041c47!2sZ%20Home%20Interiors!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            aria-label="Google Map showing Z Home Interiors location">
+          </iframe>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <!-- FLOATING QUICK WHATSAPP BUTTON -->
+  <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20want%20to%20discuss%20an%20interior%20project." 
+     class="floating-whatsapp" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     aria-label="Direct WhatsApp Chat">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Z Home Interiors. All rights reserved. Clean | Bright | Cozy</p>
+  </footer>
+
+  <!-- JAVASCRIPT CONTROLLERS -->
+  <script>
+    // 1. Mobile Hamburger Slide-out Drawer
+    const menuToggle = document.getElementById('menuToggle');
+    const menuClose = document.getElementById('menuClose');
+    const navMenu = document.getElementById('navMenu');
+    const menuBackdrop = document.getElementById('menuBackdrop');
+
+    function openDrawer() {
+      if (navMenu && menuBackdrop) {
+        navMenu.classList.add('open');
+        menuBackdrop.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeDrawer() {
+      if (navMenu && menuBackdrop) {
+        navMenu.classList.remove('open');
+        menuBackdrop.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    if (menuToggle && menuClose && navMenu && menuBackdrop) {
+      menuToggle.addEventListener('click', openDrawer);
+      menuClose.addEventListener('click', closeDrawer);
+      menuBackdrop.addEventListener('click', closeDrawer);
+    }
+
+    // 2. WhatsApp Form Integration
+    function sendSiteVisitToWhatsApp(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const service = document.getElementById('service').value;
+      const location = document.getElementById('location').value;
+
+      const textMessage = `Hi Sameer S,%0A%0AI would like to request an on-site evaluation for my interior project.%0A%0A*Project Details:*%0A• *Name:* ${encodeURIComponent(name)}%0A• *Phone:* ${encodeURIComponent(phone)}%0A• *Space Type:* ${encodeURIComponent(service)}%0A• *Location:* ${encodeURIComponent(location)}`;
+
+      const whatsappUrl = `https://wa.me/919182593313?text=${textMessage}`;
+      window.open(whatsappUrl, '_blank');
+    }
+  </script>
+
+</body>
+</html>

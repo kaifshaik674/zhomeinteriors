@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Gallery & Room Inspiration | Z Home Interiors</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    /* ==========================================================================
+       1. LUXURY PALETTE
+       ========================================================================== */
+    :root {
+      --gold-primary: #D4AF37;
+      --gold-light: #F3E0B5;
+      --gold-champagne: #E5C378;
+      --gold-dark: #9E7B4F;
+      --gold-glow: rgba(212, 175, 55, 0.28);
+      
+      --bg-dark: #0B1017;
+      --bg-surface: rgba(11, 16, 23, 0.78);
+      --bg-card: rgba(15, 21, 30, 0.85);
+      --border-gold: rgba(229, 195, 120, 0.35);
+      --border-light: rgba(255, 255, 255, 0.1);
+      
+      --text-bright: #FFFFFF;
+      --text-soft: #CBD5E1;
+      --text-muted: #94A3B8;
+      
+      --font-heading: 'Cinzel', serif;
+      --font-subheading: 'Montserrat', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      min-height: 100%;
+      width: 100%;
+      font-family: var(--font-body);
+      background-color: var(--bg-dark);
+      color: var(--text-bright);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* PROFILE DETAILS BANNER */
+    .profile-details-banner {
+      background: rgba(15, 21, 30, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-gold);
+      border-radius: 16px;
+      padding: 1.2rem 2rem;
+      margin-top: 80px; 
+  margin-bottom: 2rem;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .profile-details-banner h2 {
+      font-family: var(--font-subheading);
+      color: var(--gold-champagne);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.5px;
+    }
+
+    .profile-details-banner p {
+      color: var(--text-soft);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .location-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 1rem;
+    }
+
+    .loc-tag {
+      font-size: 0.78rem;
+      background: rgba(212, 175, 55, 0.15);
+      color: var(--gold-light);
+      padding: 0.35rem 0.85rem;
+      border-radius: 20px;
+      border: 1px solid rgba(229, 195, 120, 0.3);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .loc-tag i {
+      color: var(--gold-champagne);
+      font-size: 0.75rem;
+    }
+
+    /* ==========================================================================
+       2. BACKGROUND SLIDESHOW & OVERLAY
+       ========================================================================== */
+    .slideshow-container {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-repeat: no-repeat;
+      opacity: 0;
+      animation: slideFade 30s infinite ease-in-out;
+      filter: contrast(105%) brightness(82%) saturate(108%);
+      will-change: opacity, transform;
+    }
+
+    .slide-1 { background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1920&q=80'); animation-delay: 0s; }
+    .slide-2 { background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1920&q=80'); animation-delay: 5s; }
+    .slide-3 { background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1920&q=80'); animation-delay: 10s; }
+    .slide-4 { background-image: url('https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=1920&q=80'); animation-delay: 15s; }
+    .slide-5 { background-image: url('https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1920&q=80'); animation-delay: 20s; }
+    .slide-6 { background-image: url('https://images.unsplash.com/photo-1558036117-15d82a90b9b1?auto=format&fit=crop&w=1920&q=80'); animation-delay: 25s; }
+
+    @keyframes slideFade {
+      0% { opacity: 0; transform: scale(1); }
+      3.3% { opacity: 1; }
+      16.6% { opacity: 1; }
+      20% { opacity: 0; transform: scale(1.05); }
+      100% { opacity: 0; transform: scale(1); }
+    }
+
+    .bg-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2;
+      background: radial-gradient(circle at 50% 50%, rgba(11, 16, 23, 0.88) 0%, rgba(11, 16, 23, 0.72) 70%, rgba(11, 16, 23, 0.6) 100%);
+      pointer-events: none;
+    }
+
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(140px);
+      z-index: 3;
+      pointer-events: none;
+      animation: orbFloat 22s infinite alternate ease-in-out;
+    }
+
+    .orb-1 { top: -10%; right: -5%; width: 480px; height: 480px; background: radial-gradient(circle, var(--gold-glow), transparent 70%); }
+    .orb-2 { bottom: -15%; left: -5%; width: 520px; height: 520px; background: radial-gradient(circle, rgba(158, 123, 79, 0.18), transparent 70%); }
+
+    /* ==========================================================================
+       3. NAVIGATION BAR (DESKTOP)
+       ========================================================================== */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(11, 16, 23, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-light);
+      padding: 0.9rem 0;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo-icon {
+      width: 32px;
+      height: 32px;
+      filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.4));
+    }
+
+    .nav-logo-text {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      background: linear-gradient(90deg, #FFFFFF 0%, #FFF5D8 35%, #E5C378 70%, #D4AF37 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 10px rgba(212, 175, 55, 0.25);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      position: relative;
+      text-decoration: none;
+      color: var(--text-soft);
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      padding: 0.5rem 0;
+      transition: var(--transition-smooth);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--gold-champagne);
+      text-shadow: 0 0 8px rgba(229, 195, 120, 0.4);
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold-champagne), transparent);
+      box-shadow: 0 0 8px var(--gold-champagne);
+      border-radius: 2px;
+    }
+
+    .whatsapp-btn-nav {
+      background: #10B981;
+      color: #FFFFFF !important;
+      padding: 0.5rem 1.1rem;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+      transition: var(--transition-smooth);
+    }
+
+    .whatsapp-btn-nav:hover {
+      background: #059669;
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       4. HAMBURGER & SLIDE-OUT DRAWER SYSTEM
+       ========================================================================== */
+    .hamburger-btn,
+    .drawer-close-item,
+    .drawer-backdrop {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .nav-container {
+        padding: 0.8rem 1.5rem;
+      }
+
+      .hamburger-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(212, 175, 55, 0.12);
+        border: 1px solid var(--border-gold);
+        color: var(--gold-champagne);
+        font-size: 1.35rem;
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: var(--transition-smooth);
+      }
+
+      .hamburger-btn:hover {
+        background: var(--gold-primary);
+        color: #0B1017;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -320px;
+        width: 290px;
+        height: 100vh;
+        background: rgba(11, 16, 23, 0.98);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border-left: 1px solid var(--border-gold);
+        box-shadow: -15px 0 35px rgba(0, 0, 0, 0.75);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem 1.8rem;
+        gap: 1.2rem;
+        z-index: 1001;
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        overflow-y: auto;
+      }
+
+      .nav-links.open {
+        right: 0;
+      }
+
+      .drawer-close-item {
+        display: block;
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+
+      .drawer-close-btn {
+        background: transparent;
+        border: none;
+        color: var(--gold-champagne);
+        font-size: 2rem;
+        cursor: pointer;
+        line-height: 1;
+        float: right;
+      }
+
+      .nav-item {
+        width: 100%;
+      }
+
+      .nav-link {
+        font-size: 1.1rem;
+        padding: 0.7rem 0;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .whatsapp-btn-nav {
+        width: 100%;
+        justify-content: center;
+        margin-top: 1rem;
+        padding: 0.8rem 1rem;
+      }
+
+      .drawer-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(4px);
+        z-index: 1000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .drawer-backdrop.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .orb {
+        filter: blur(80px);
+        opacity: 0.5;
+      }
+    }
+
+    /* ==========================================================================
+       5. MAIN PAGE CONTENT & GALLERY SECTIONS
+       ========================================================================== */
+    .content-wrapper {
+      position: relative;
+      z-index: 10;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    .glass-panel {
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-gold);
+      border-radius: 20px;
+      padding: 2.2rem;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.08);
+      margin-bottom: 3.5rem;
+    }
+
+    /* SECTION HEADINGS WITH "SHOW MORE" ACTION */
+    .category-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border-gold);
+      padding-bottom: 0.8rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .category-title {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold-champagne);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .category-title i {
+      color: var(--gold-primary);
+      font-size: 1.2rem;
+    }
+
+    .show-more-link {
+      color: var(--gold-light);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid var(--border-gold);
+      padding: 0.45rem 1.1rem;
+      border-radius: 25px;
+      transition: var(--transition-smooth);
+    }
+
+    .show-more-link:hover {
+      background: linear-gradient(135deg, #D4AF37 0%, #B89355 100%);
+      color: #FFFFFF;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.35);
+      transform: translateX(3px);
+    }
+
+    /* 2 ROWS x 3 COLUMNS GRID = 6 IMAGES PER SECTION */
+    .gallery-grid-6 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
+      width: 100%;
+      border: 1px solid var(--border-light);
+      background: rgba(11, 16, 23, 0.6);
+      transition: var(--transition-smooth);
+    }
+
+    .gallery-item:hover {
+      border-color: var(--gold-champagne);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.2);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(11, 16, 23, 0.95) 0%, rgba(11, 16, 23, 0.4) 50%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1rem;
+      opacity: 0;
+      transition: var(--transition-smooth);
+    }
+
+    .gallery-item:hover .gallery-caption {
+      opacity: 1;
+    }
+
+    /* Permanent readability on touch screens */
+    @media (hover: none) {
+      .gallery-caption {
+        opacity: 1;
+      }
+    }
+
+    .gallery-caption h4 {
+      font-size: 0.98rem;
+      color: var(--text-bright);
+      margin-bottom: 0.2rem;
+    }
+
+    .gallery-caption p {
+      font-size: 0.78rem;
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border-light);
+      padding: 2.5rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      background: rgba(11, 16, 23, 0.95);
+      position: relative;
+      z-index: 10;
+    }
+
+    @keyframes orbFloat {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(30px, -30px); }
+    }
+
+    /* RESPONSIVE LAYOUT */
+    @media (max-width: 900px) {
+      .gallery-grid-6 { grid-template-columns: repeat(2, 1fr); }
+      .glass-panel { padding: 1.8rem 1.4rem; }
+    }
+
+    @media (max-width: 640px) {
+      .gallery-grid-6 { grid-template-columns: 1fr; }
+      .category-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .show-more-link { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BACKGROUND SLIDESHOW -->
+  <div class="slideshow-container">
+    <div class="slide slide-1"></div>
+    <div class="slide slide-2"></div>
+    <div class="slide slide-3"></div>
+    <div class="slide slide-4"></div>
+    <div class="slide slide-5"></div>
+    <div class="slide slide-6"></div>
+  </div>
+
+  <div class="bg-overlay"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <!-- NAVIGATION BAR -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <svg class="nav-logo-icon" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="navGold" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FFF0C7" />
+              <stop offset="50%" stop-color="#D4AF37" />
+              <stop offset="100%" stop-color="#8C6A32" />
+            </linearGradient>
+          </defs>
+          <path d="M25 20 H120 L108 36 H50 L25 20 Z" fill="url(#navGold)" />
+          <path d="M108 36 L20 120 H40 L118 36 Z" fill="url(#navGold)" />
+          <path d="M20 120 L120 120 L120 134 L5 134 L108 36 H90 Z" fill="url(#navGold)" />
+          <path d="M25 70 L60 42 L70 50 L38 78 Z" fill="url(#navGold)" />
+          <path d="M60 42 L100 74 L92 82 L60 55 Z" fill="url(#navGold)" />
+          <path d="M60 55 V120 H50 V64 Z" fill="url(#navGold)" />
+          <path d="M96 72 L125 97 L117 104 L92 80 Z" fill="url(#navGold)" />
+          <rect x="90" y="86" width="8" height="8" fill="url(#navGold)" rx="1"/>
+          <rect x="101" y="86" width="8" height="8" fill="url(#navGold)" rx="1"/>
+          <rect x="90" y="97" width="8" height="8" fill="url(#navGold)" rx="1"/>
+          <rect x="101" y="97" width="8" height="8" fill="url(#navGold)" rx="1"/>
+        </svg>
+        <span class="nav-logo-text">Z HOME INTERIORS</span>
+      </a>
+
+      <!-- HAMBURGER BUTTON (Hidden on desktops, visible on mobile) -->
+      <button class="hamburger-btn" id="menuToggle" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <!-- NAVIGATION DRAWER -->
+      <ul class="nav-links" id="navMenu">
+        <!-- Close button inside drawer on mobile -->
+        <li class="drawer-close-item">
+          <button class="drawer-close-btn" id="menuClose" aria-label="Close menu">&times;</button>
+        </li>
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="company.html" class="nav-link">Company</a></li>
+        <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li class="nav-item"><a href="gallery.html" class="nav-link active">Gallery</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        <li class="nav-item">
+          <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20would%20like%20to%20inquire%20about%20interior%20design%20services." target="_blank" rel="noopener noreferrer" class="whatsapp-btn-nav">
+            <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- DIMMED BACKDROP FOR MOBILE -->
+    <div class="drawer-backdrop" id="menuBackdrop"></div>
+  </header>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="content-wrapper">
+
+    <!-- PROFILE DETAILS BANNER -->
+    <div class="profile-details-banner">
+      <h2>Sameer S | Lead Interior Designer</h2>
+      <p>Curated Design Gallery & Inspiration Catalogue Across All Specialized Spaces</p>
+      <div class="location-tags">
+        <span class="loc-tag"><i class="fa-solid fa-location-dot"></i> Nandyal</span>
+        <span class="loc-tag"><i class="fa-solid fa-location-dot"></i> Kurnool</span>
+        <span class="loc-tag"><i class="fa-solid fa-location-dot"></i> Giddalur</span>
+        <span class="loc-tag"><i class="fa-solid fa-location-dot"></i> Markapur</span>
+        <span class="loc-tag"><i class="fa-solid fa-location-dot"></i> Nandikotkur</span>
+        <span class="loc-tag"><i class="fa-solid fa-location-dot"></i> Atmakur</span>
+      </div>
+    </div>
+
+    <!-- ==================== 1. BEDROOM DESIGN GALLERY ==================== -->
+    <section class="glass-panel">
+      <div class="category-header">
+        <h2 class="category-title"><i class="fa-solid fa-bed"></i> Bedroom Interior Works</h2>
+        <a href="bedroomgallery.html" class="show-more-link">
+          Show More  <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="gallery-grid-6">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=600&q=80" alt="Royal Master Bedroom">
+          <div class="gallery-caption">
+            <h4>Royal Velvet Headboard Bedroom</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Nandyal Urban</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=600&q=80" alt="Minimal Wood Bedroom">
+          <div class="gallery-caption">
+            <h4>Japanese Minimalist Wooden Suite</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Kurnool</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=600&q=80" alt="Kids Bunk Bedroom">
+          <div class="gallery-caption">
+            <h4>Playful Kids Room & Study Unit</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Giddalur</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=600&q=80" alt="Luxury Penthouse Suite">
+          <div class="gallery-caption">
+            <h4>Penthouse Suite with LED Wall Channels</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Markapur</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80" alt="Glass Sliding Wardrobe">
+          <div class="gallery-caption">
+            <h4>Lacquered Glass Sliding Wardrobe</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Nandikotkur</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1617325247661-675ab4b64ae2?auto=format&fit=crop&w=600&q=80" alt="Contemporary Guest Room">
+          <div class="gallery-caption">
+            <h4>Earthy Tone Guest Suite Setup</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Atmakur</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 2. LIVING ROOM GALLERY ==================== -->
+    <section class="glass-panel">
+      <div class="category-header">
+        <h2 class="category-title"><i class="fa-solid fa-couch"></i> Living Room & TV Units</h2>
+        <a href="livinggallery.html" class="show-more-link">
+          Show More  <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="gallery-grid-6">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=80" alt="Charcoal Louvers TV Wall">
+          <div class="gallery-caption">
+            <h4>Charcoal Fluted Louvers TV Console</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Kurnool</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=600&q=80" alt="Formal Sitting Lounge">
+          <div class="gallery-caption">
+            <h4>Luxury Villa Formal Sitting Lounge</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Nandyal Urban</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=600&q=80" alt="Modern Sectional Sofa">
+          <div class="gallery-caption">
+            <h4>Custom L-Shaped Leatherette Sofa</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Markapur</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80" alt="Double Height Hall">
+          <div class="gallery-caption">
+            <h4>Double Height Living Room Chandelier</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Giddalur</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=600&q=80" alt="Minimalist Apartment Hall">
+          <div class="gallery-caption">
+            <h4>Neutral Minimalist Apartment Lounge</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Atmakur</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=600&q=80" alt="Marble Accent TV Backing">
+          <div class="gallery-caption">
+            <h4>Italian Marble Backlit TV Accent</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Nandikotkur</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 3. KITCHEN & DINING GALLERY ==================== -->
+    <section class="glass-panel">
+      <div class="category-header">
+        <h2 class="category-title"><i class="fa-solid fa-utensils"></i> Kitchen & Dining Interiors</h2>
+        <a href="kitchengallery.html" class="show-more-link">
+          Show More  <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="gallery-grid-6">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=600&q=80" alt="Acrylic Modular Kitchen">
+          <div class="gallery-caption">
+            <h4>Glossy Acrylic Island Kitchen Bar</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Markapur</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=600&q=80" alt="Pendant Light Dining Table">
+          <div class="gallery-caption">
+            <h4>Custom Teak Dining & Crockery Display</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Kurnool</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=600&q=80" alt="Quartz Counter Kitchen">
+          <div class="gallery-caption">
+            <h4>Handleless Soft-Close Pantry Unit</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Nandyal Urban</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=600&q=80" alt="Classic Royal Dining">
+          <div class="gallery-caption">
+            <h4>Royal 8-Seater Quartz Dining Set</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Nandikotkur</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=600&q=80" alt="Parallel Modular Kitchen">
+          <div class="gallery-caption">
+            <h4>Parallel Granite Counter Layout</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Giddalur</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=600&q=80" alt="Open Concept Breakfast Bar">
+          <div class="gallery-caption">
+            <h4>Open Concept Breakfast Bar Nook</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Atmakur</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 4. BATHROOM SOLUTIONS GALLERY ==================== -->
+    <section class="glass-panel">
+      <div class="category-header">
+        <h2 class="category-title"><i class="fa-solid fa-bath"></i> Luxury Bathroom & Powder Rooms</h2>
+        <a href="bathroomgallery.html" class="show-more-link">
+          Show More  <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="gallery-grid-6">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Glass Enclosure Master Bath">
+          <div class="gallery-caption">
+            <h4>Frameless Glass Enclosure Master Bath</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Nandyal Urban</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=600&q=80" alt="Marble Powder Room">
+          <div class="gallery-caption">
+            <h4>Italian Marble Vanity Guest Powder Room</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Nandikotkur</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=600&q=80" alt="Slate Tile Spa Bathroom">
+          <div class="gallery-caption">
+            <h4>Slate Grey Stone Wall Spa Bathroom</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Kurnool</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=600&q=80" alt="Golden Tapware Bath">
+          <div class="gallery-caption">
+            <h4>Subway Tile & Golden Brass Fittings</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Giddalur</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1564540586988-aa4e53c3d799?auto=format&fit=crop&w=600&q=80" alt="Standalone Tub Bathroom">
+          <div class="gallery-caption">
+            <h4>Full Marble En-Suite Soaking Tub</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Markapur</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1604014237800-1c9102c219da?auto=format&fit=crop&w=600&q=80" alt="Mirrored Cabinet Restroom">
+          <div class="gallery-caption">
+            <h4>HDMR Mirror Storage Restroom Setup</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Atmakur</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 5. OFFICE & WORKSPACE GALLERY ==================== -->
+    <section class="glass-panel">
+      <div class="category-header">
+        <h2 class="category-title"><i class="fa-solid fa-briefcase"></i> Office & Commercial Workspaces</h2>
+        <a href="officegallery.html" class="show-more-link">
+          Show More  <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="gallery-grid-6">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&q=80" alt="Executive Cabin">
+          <div class="gallery-caption">
+            <h4>Director Desk & Veneer Bookcase Cabin</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Giddalur</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" alt="Conference Room Table">
+          <div class="gallery-caption">
+            <h4>Acoustic Clad Corporate Conference Room</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Nandyal Urban</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1593062096033-9a26b09da705?auto=format&fit=crop&w=600&q=80" alt="Floating Desk Home Office">
+          <div class="gallery-caption">
+            <h4>Floating Workstation with Cork Pinboard</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Kurnool</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=600&q=80" alt="Open Coworking Floor">
+          <div class="gallery-caption">
+            <h4>Modular Coworking Desk Clusters</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Markapur</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="Studio Workstation">
+          <div class="gallery-caption">
+            <h4>Dual Monitor Creative Design Workstation</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Atmakur</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="Lobby Reception">
+          <div class="gallery-caption">
+            <h4>Onyx Marble Backlit Reception Desk</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Nandikotkur</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 6. EXTERIOR & GARDEN GALLERY ==================== -->
+    <section class="glass-panel">
+      <div class="category-header">
+        <h2 class="category-title"><i class="fa-solid fa-house-chimney"></i> Exterior Elevation & Garden</h2>
+        <a href="exteriorgallery.html" class="show-more-link">
+          Show More  <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="gallery-grid-6">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1558036117-15d82a90b9b1?auto=format&fit=crop&w=600&q=80" alt="Outdoor Patio Deck">
+          <div class="gallery-caption">
+            <h4>Weatherproof Composite Patio Decking</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Nandyal Rural</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Courtyard Walkway">
+          <div class="gallery-caption">
+            <h4>Granite Cobblestone Courtyard Pathway</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Kurnool</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=600&q=80" alt="Modern Louvers Facade">
+          <div class="gallery-caption">
+            <h4>Exterior Louvers & Manicured Front Lawn</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Giddalur</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" alt="Balcony Turf Garden">
+          <div class="gallery-caption">
+            <h4>High-Density Astro Turf Balcony Garden</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Markapur</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=80" alt="Traditional Veranda Porch">
+          <div class="gallery-caption">
+            <h4>Treated Teak Pillar Veranda Porch</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Nandikotkur</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=600&q=80" alt="Architectural Night Lighting">
+          <div class="gallery-caption">
+            <h4>Architectural Exterior Night Lighting Design</h4>
+            <p><i class="fa-solid fa-location-dot"></i> Atmakur</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Z Home Interiors (Nandyal). All rights reserved. </p>
+  </footer>
+
+  <!-- JAVASCRIPT FOR MOBILE HAMBURGER DRAWER -->
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const menuClose = document.getElementById('menuClose');
+    const navMenu = document.getElementById('navMenu');
+    const menuBackdrop = document.getElementById('menuBackdrop');
+
+    function openDrawer() {
+      if (navMenu && menuBackdrop) {
+        navMenu.classList.add('open');
+        menuBackdrop.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevents page scrolling behind drawer
+      }
+    }
+
+    function closeDrawer() {
+      if (navMenu && menuBackdrop) {
+        navMenu.classList.remove('open');
+        menuBackdrop.classList.remove('active');
+        document.body.style.overflow = ''; // Restores normal scrolling
+      }
+    }
+
+    if (menuToggle && menuClose && navMenu && menuBackdrop) {
+      menuToggle.addEventListener('click', openDrawer);
+      menuClose.addEventListener('click', closeDrawer);
+      menuBackdrop.addEventListener('click', closeDrawer);
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Luxury Bathroom & Powder Rooms Gallery | Z Home Interiors</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* ==========================================================================
+       1. LUXURY PALETTE
+       ========================================================================== */
+    :root {
+      --gold-primary: #D4AF37;
+      --gold-light: #F3E0B5;
+      --gold-champagne: #E5C378;
+      --gold-dark: #9E7B4F;
+      --gold-glow: rgba(212, 175, 55, 0.28);
+      
+      --bg-dark: #0B1017;
+      --bg-surface: rgba(11, 16, 23, 0.78);
+      --bg-card: rgba(15, 21, 30, 0.85);
+      --border-gold: rgba(229, 195, 120, 0.35);
+      --border-light: rgba(255, 255, 255, 0.1);
+      
+      --text-bright: #FFFFFF;
+      --text-soft: #CBD5E1;
+      --text-muted: #94A3B8;
+      
+      --font-heading: 'Cinzel', serif;
+      --font-subheading: 'Montserrat', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      min-height: 100%;
+      width: 100%;
+      font-family: var(--font-body);
+      background-color: var(--bg-dark);
+      color: var(--text-bright);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    /* PROFILE DETAILS BANNER */
+    .profile-details-banner {
+      background: rgba(15, 21, 30, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-gold);
+      border-radius: 16px;
+      padding: 1.2rem 2rem;
+      margin-top: 80px; 
+  margin-bottom: 2rem;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .profile-details-banner h2 {
+      font-family: var(--font-subheading);
+      color: var(--gold-champagne);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.5px;
+    }
+
+    .profile-details-banner p {
+      color: var(--text-soft);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .location-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 1rem;
+    }
+
+    .loc-tag {
+      font-size: 0.78rem;
+      background: rgba(212, 175, 55, 0.15);
+      color: var(--gold-light);
+      padding: 0.35rem 0.85rem;
+      border-radius: 20px;
+      border: 1px solid rgba(229, 195, 120, 0.3);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .loc-tag i {
+      color: var(--gold-champagne);
+      font-size: 0.75rem;
+    }
+
+    /* ==========================================================================
+       2. BACKGROUND SLIDESHOW & OVERLAY
+       ========================================================================== */
+    .slideshow-container {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-repeat: no-repeat;
+      opacity: 0;
+      animation: slideFade 30s infinite ease-in-out;
+      filter: contrast(105%) brightness(82%) saturate(108%);
+      will-change: opacity, transform;
+    }
+
+    .slide-1 { background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1920&q=80'); animation-delay: 0s; }
+    .slide-2 { background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1920&q=80'); animation-delay: 5s; }
+    .slide-3 { background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1920&q=80'); animation-delay: 10s; }
+    .slide-4 { background-image: url('https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=1920&q=80'); animation-delay: 15s; }
+    .slide-5 { background-image: url('https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1920&q=80'); animation-delay: 20s; }
+    .slide-6 { background-image: url('https://images.unsplash.com/photo-1558036117-15d82a90b9b1?auto=format&fit=crop&w=1920&q=80'); animation-delay: 25s; }
+
+    @keyframes slideFade {
+      0% { opacity: 0; transform: scale(1); }
+      3.3% { opacity: 1; }
+      16.6% { opacity: 1; }
+      20% { opacity: 0; transform: scale(1.05); }
+      100% { opacity: 0; transform: scale(1); }
+    }
+
+    .bg-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2;
+      background: radial-gradient(circle at 50% 50%, rgba(11, 16, 23, 0.88) 0%, rgba(11, 16, 23, 0.72) 70%, rgba(11, 16, 23, 0.6) 100%);
+      pointer-events: none;
+    }
+
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(140px);
+      z-index: 3;
+      pointer-events: none;
+      animation: orbFloat 22s infinite alternate ease-in-out;
+    }
+
+    .orb-1 { top: -10%; right: -5%; width: 480px; height: 480px; background: radial-gradient(circle, var(--gold-glow), transparent 70%); }
+    .orb-2 { bottom: -15%; left: -5%; width: 520px; height: 520px; background: radial-gradient(circle, rgba(158, 123, 79, 0.18), transparent 70%); }
+
+    /* ==========================================================================
+       3. NAVIGATION BAR (DESKTOP)
+       ========================================================================== */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(11, 16, 23, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-light);
+      padding: 0.9rem 0;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .nav-logo {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo-icon {
+      width: 32px;
+      height: 32px;
+      filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.4));
+      flex-shrink: 0;
+    }
+
+    .nav-logo-text {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      background: linear-gradient(90deg, #FFFFFF 0%, #FFF5D8 35%, #E5C378 70%, #D4AF37 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 10px rgba(212, 175, 55, 0.25);
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      position: relative;
+      text-decoration: none;
+      color: var(--text-soft);
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      padding: 0.5rem 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition-smooth);
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--gold-champagne);
+      text-shadow: 0 0 8px rgba(229, 195, 120, 0.4);
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold-champagne), transparent);
+      box-shadow: 0 0 8px var(--gold-champagne);
+      border-radius: 2px;
+    }
+
+    .whatsapp-btn-nav {
+      background: #10B981;
+      color: #FFFFFF !important;
+      padding: 0.5rem 1.1rem;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+      transition: var(--transition-smooth);
+      white-space: nowrap;
+    }
+
+    .whatsapp-btn-nav:hover {
+      background: #059669;
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       4. HAMBURGER & SLIDE-OUT DRAWER SYSTEM
+       ========================================================================== */
+    .hamburger-btn,
+    .drawer-close-item,
+    .drawer-backdrop {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .nav-container {
+        padding: 0.8rem 1rem;
+      }
+
+      .hamburger-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(212, 175, 55, 0.12);
+        border: 1px solid var(--border-gold);
+        color: var(--gold-champagne);
+        font-size: 1.35rem;
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: var(--transition-smooth);
+      }
+
+      .hamburger-btn:hover {
+        background: var(--gold-primary);
+        color: #0B1017;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -320px;
+        width: 280px;
+        max-width: 85vw;
+        height: 100vh;
+        background: rgba(11, 16, 23, 0.98);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border-left: 1px solid var(--border-gold);
+        box-shadow: -15px 0 35px rgba(0, 0, 0, 0.75);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem 1.5rem;
+        gap: 1.2rem;
+        z-index: 1001;
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        overflow-y: auto;
+      }
+
+      .nav-links.open {
+        right: 0;
+      }
+
+      .drawer-close-item {
+        display: block;
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+
+      .drawer-close-btn {
+        background: transparent;
+        border: none;
+        color: var(--gold-champagne);
+        font-size: 2rem;
+        cursor: pointer;
+        line-height: 1;
+        float: right;
+      }
+
+      .nav-item {
+        width: 100%;
+      }
+
+      .nav-link {
+        font-size: 1.1rem;
+        padding: 0.7rem 0;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .whatsapp-btn-nav {
+        width: 100%;
+        justify-content: center;
+        margin-top: 1rem;
+        padding: 0.8rem 1rem;
+      }
+
+      .drawer-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(4px);
+        z-index: 1000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .drawer-backdrop.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .orb {
+        filter: blur(80px);
+        opacity: 0.5;
+      }
+    }
+
+    /* ==========================================================================
+       5. MAIN PAGE CONTENT & STICKY FLOATING BACK BUTTON
+       ========================================================================== */
+    .content-wrapper {
+      position: relative;
+      z-index: 10;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+      width: 100%;
+    }
+
+    .glass-panel {
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-gold);
+      border-radius: 20px;
+      padding: 2.2rem;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.08);
+      margin-bottom: 3.5rem;
+      width: 100%;
+      min-width: 0;
+    }
+
+    /* NATIVE STICKY FLOATING BACK BUTTON */
+    .back-btn-row {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 72px;
+      z-index: 95;
+      margin-bottom: 1.5rem;
+      display: flex;
+      pointer-events: none;
+    }
+
+    .back-link {
+      pointer-events: auto;
+      color: var(--gold-light);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.55rem 1.25rem;
+      border-radius: 30px;
+      background: rgba(11, 16, 23, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-gold);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 15px rgba(212, 175, 55, 0.2);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
+    }
+
+    .back-link:hover {
+      color: #0B1017;
+      background: linear-gradient(135deg, #E5C378 0%, #D4AF37 100%);
+      border-color: var(--gold-champagne);
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+      transform: translateX(-3px);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+      font-weight: 800;
+      letter-spacing: 2px;
+      background: linear-gradient(135deg, #FFFFFF 0%, #F3E0B5 50%, #D4AF37 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.6rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      max-width: 720px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* 3 COLUMNS GRID FOR BATHROOM CARDS */
+    .bathroom-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+      width: 100%;
+    }
+
+    .bathroom-card {
+      background: rgba(11, 16, 23, 0.75);
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-smooth);
+      width: 100%;
+      min-width: 0;
+    }
+
+    .bathroom-card:hover {
+      border-color: var(--gold-champagne);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.2);
+    }
+
+    .bathroom-img-wrapper {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      width: 100%;
+      overflow: hidden;
+      background-color: #0B1017;
+    }
+
+    .bathroom-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      display: block;
+    }
+
+    .bathroom-card:hover .bathroom-img-wrapper img {
+      transform: scale(1.08);
+    }
+
+    .bathroom-tag-overlay {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      background: rgba(11, 16, 23, 0.85);
+      border: 1px solid var(--border-gold);
+      color: var(--gold-light);
+      font-size: 0.72rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 15px;
+      font-weight: 600;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .bathroom-card-body {
+      padding: 1.4rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-width: 0;
+    }
+
+    .bathroom-card-body h3 {
+      font-family: var(--font-subheading);
+      font-size: 1.1rem;
+      color: var(--text-bright);
+      margin-bottom: 0.4rem;
+    }
+
+    .bathroom-card-body p {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    .bathroom-specs {
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(229, 195, 120, 0.2);
+      border-radius: 8px;
+      padding: 0.7rem;
+      font-size: 0.76rem;
+      color: var(--gold-light);
+      margin-bottom: 1.2rem;
+    }
+
+    .gold-btn-sm {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      background: linear-gradient(135deg, #D4AF37 0%, #B89355 100%);
+      color: #FFFFFF !important;
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 0.65rem 1.2rem;
+      border-radius: 25px;
+      transition: var(--transition-smooth);
+      width: 100%;
+      text-align: center;
+    }
+
+    .gold-btn-sm:hover {
+      background: linear-gradient(135deg, #E5C378 0%, #D4AF37 100%);
+      box-shadow: 0 0 15px rgba(229, 195, 120, 0.4);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border-light);
+      padding: 2.5rem 1rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      background: rgba(11, 16, 23, 0.95);
+      position: relative;
+      z-index: 10;
+    }
+
+    @keyframes orbFloat {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(30px, -30px); }
+    }
+
+    /* RESPONSIVE BREAKPOINTS */
+    @media (max-width: 900px) {
+      .content-wrapper {
+        padding: 2rem 1rem 3.5rem;
+      }
+      .bathroom-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.4rem;
+      }
+      .glass-panel {
+        padding: 1.8rem 1.2rem;
+      }
+      .back-btn-row {
+        top: 66px;
+      }
+      .back-link {
+        font-size: 0.82rem;
+        padding: 0.45rem 1rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .bathroom-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .profile-details-banner {
+        padding: 1.2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BACKGROUND SLIDESHOW -->
+  <div class="slideshow-container">
+    <div class="slide slide-1"></div>
+    <div class="slide slide-2"></div>
+    <div class="slide slide-3"></div>
+    <div class="slide slide-4"></div>
+    <div class="slide slide-5"></div>
+    <div class="slide slide-6"></div>
+  </div>
+
+  <div class="bg-overlay"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <!-- NAVIGATION BAR -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <svg class="nav-logo-icon" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="navGold" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FFF0C7" />
+              <stop offset="50%" stop-color="#D4AF37" />
+              <stop offset="100%" stop-color="#8C6A32" />
+            </linearGradient>
+          </defs>
+          <path d="M25 20 H120 L108 36 H50 L25 20 Z" fill="url(#navGold)" />
+          <path d="M108 36 L20 120 H40 L118 36 Z" fill="url(#navGold)" />
+          <path d="M20 120 L120 120 L120 134 L5 134 L108 36 H90 Z" fill="url(#navGold)" />
+          <path d="M25 70 L60 42 L70 50 L38 78 Z" fill="url(#navGold)" />
+          <path d="M60 42 L100 74 L92 82 L60 55 Z" fill="url(#navGold)" />
+          <path d="M60 55 V120 H50 V64 Z" fill="url(#navGold)" />
+          <path d="M96 72 L125 97 L117 104 L92 80 Z" fill="url(#navGold)" />
+          <rect x="90" y="86" width="8" height="8" fill="url(#navGold)" rx="1"/>
+          <rect x="101" y="86" width="8" height="8" fill="url(#navGold)" rx="1"/>
+          <rect x="90" y="97" width="8" height="8" fill="url(#navGold)" rx="1"/>
+          <rect x="101" y="97" width="8" height="8" fill="url(#navGold)" rx="1"/>
+        </svg>
+        <span class="nav-logo-text">Z HOME INTERIORS</span>
+      </a>
+
+      <!-- HAMBURGER BUTTON (Mobile Only) -->
+      <button class="hamburger-btn" id="menuToggle" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <!-- NAVIGATION LINKS & SLIDE-OUT DRAWER -->
+      <ul class="nav-links" id="navMenu">
+        <li class="drawer-close-item">
+          <button class="drawer-close-btn" id="menuClose" aria-label="Close menu">&times;</button>
+        </li>
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="company.html" class="nav-link">Company</a></li>
+        <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li class="nav-item"><a href="gallery.html" class="nav-link active">Gallery</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        <li class="nav-item">
+          <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20would%20like%20to%20inquire%20about%20bathroom%20and%20powder%20room%20designs." target="_blank" rel="noopener noreferrer" class="whatsapp-btn-nav">
+            <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- DIMMED BACKDROP OVERLAY FOR MOBILE -->
+    <div class="drawer-backdrop" id="menuBackdrop"></div>
+  </header>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="content-wrapper">
+
+    <!-- PROFILE DETAILS BANNER -->
+    <div class="profile-details-banner">
+      <h2>Sameer S | Lead Interior Designer</h2>
+      <p>Luxury Master Bathrooms, Powder Restrooms, Spa Suites &amp; Vanity Solutions Across Our Regional Locations</p>
+      <div class="location-tags">
+        <span class="loc-tag"><i class="fa-solid fa-location-dot"></i> Nandyal</span>
+        <span class="loc-tag"><i class="fa-solid fa-location-dot"></i> Kurnool</span>
+        <span class="loc-tag"><i class="fa-solid fa-location-dot"></i> Giddalur</span>
+        <span class="loc-tag"><i class="fa-solid fa-location-dot"></i> Markapur</span>
+        <span class="loc-tag"><i class="fa-solid fa-location-dot"></i> Nandikotkur</span>
+        <span class="loc-tag"><i class="fa-solid fa-location-dot"></i> Atmakur</span>
+      </div>
+    </div>
+
+    <!-- BATHROOM GALLERY SECTION -->
+    <section class="glass-panel">
+      <!-- STICKY FLOATING BACK BUTTON CONTAINER -->
+      <div class="back-btn-row">
+        <a href="gallery.html" class="back-link">
+          <i class="fa-solid fa-arrow-left"></i> Back to Main Gallery
+        </a>
+      </div>
+
+      <div class="section-header">
+        <h2 class="section-title"><i class="fa-solid fa-bath"></i> LUXURY BATHROOM &amp; POWDER ROOM CATALOGUE</h2>
+        <p class="section-subtitle">Discover waterproof luxury bathroom layouts featuring concealed Jaquar fittings, frameless glass shower enclosures, backlit sensor mirrors, and bookmatched marble finishes.</p>
+      </div>
+
+      <div class="bathroom-grid">
+
+        <!-- 01 -->
+        <div class="bathroom-card">
+          <div class="bathroom-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Frameless Glass Master Bath" loading="lazy">
+            <span class="bathroom-tag-overlay"><i class="fa-solid fa-location-dot"></i> Nandyal Urban</span>
+          </div>
+          <div class="bathroom-card-body">
+            <div>
+              <h3>01. Frameless Glass Master En-Suite</h3>
+              <p>Waterproof layout featuring concealed thermostatic divertors, glass partition, and anti-skid floor tiles.</p>
+              <div class="bathroom-specs"><strong>Specs:</strong> BWP Marine Plywood, Kohler Fixtures, Glass Partition.</div>
+            </div>
+            <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20want%20to%20inquire%20about%20Bathroom%2001%20(Frameless%20Glass%20Master)." target="_blank" rel="noopener noreferrer" class="gold-btn-sm"><i class="fa-brands fa-whatsapp"></i> Inquire Design</a>
+          </div>
+        </div>
+
+        <!-- 02 -->
+        <div class="bathroom-card">
+          <div class="bathroom-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=600&q=80" alt="Italian Marble Powder Room" loading="lazy">
+            <span class="bathroom-tag-overlay"><i class="fa-solid fa-location-dot"></i> Nandikotkur</span>
+          </div>
+          <div class="bathroom-card-body">
+            <div>
+              <h3>02. Italian Marble Guest Powder Room</h3>
+              <p>Compact guest powder restroom with Italian marble counter vanity and touch-sensor backlit mirror.</p>
+              <div class="bathroom-specs"><strong>Specs:</strong> Italian Marble Counter, Backlit LED Mirror.</div>
+            </div>
+            <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20want%20to%20inquire%20about%20Bathroom%2002%20(Italian%20Marble%20Powder)." target="_blank" rel="noopener noreferrer" class="gold-btn-sm"><i class="fa-brands fa-whatsapp"></i> Inquire Design</a>
+          </div>
+        </div>
+
+        <!-- 03 -->
+        <div class="bathroom-card">
+          <div class="bathroom-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=600&q=80" alt="Slate Grey Spa Bath" loading="lazy">
+            <span class="bathroom-tag-overlay"><i class="fa-solid fa-location-dot"></i> Kurnool</span>
+          </div>
+          <div class="bathroom-card-body">
+            <div>
+              <h3>03. Slate Grey Contemporary Spa Suite</h3>
+              <p>Monochromatic dark slate stone wall cladding paired with floating teak veneer storage cabinets.</p>
+              <div class="bathroom-specs"><strong>Specs:</strong> Slate Tiles, Waterproof Teak Veneer, Rainfall Shower.</div>
+            </div>
+            <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20want%20to%20inquire%20about%20Bathroom%2003%20(Slate%20Grey%20Spa)." target="_blank" rel="noopener noreferrer" class="gold-btn-sm"><i class="fa-brands fa-whatsapp"></i> Inquire Design</a>
+          </div>
+        </div>
+
+        <!-- 04 -->
+        <div class="bathroom-card">
+          <div class="bathroom-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=600&q=80" alt="Wooden Accent Vanity Bath" loading="lazy">
+            <span class="bathroom-tag-overlay"><i class="fa-solid fa-location-dot"></i> Markapur</span>
+          </div>
+          <div class="bathroom-card-body">
+            <div>
+              <h3>04. Warm Wooden Fluted Vanity Suite</h3>
+              <p>Waterproof teak fluted louvers front vanity unit with vessel counter sink and warm lighting.</p>
+              <div class="bathroom-specs"><strong>Specs:</strong> Waterproof Fluted Louvers, Vessel Sink.</div>
+            </div>
+            <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20want%20to%20inquire%20about%20Bathroom%2004%20(Warm%20Wooden%20Vanity)." target="_blank" rel="noopener noreferrer" class="gold-btn-sm"><i class="fa-brands fa-whatsapp"></i> Inquire Design</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Z Home Interiors (Nandyal). All rights reserved.</p>
+  </footer>
+
+  <!-- JAVASCRIPT CONTROLLERS -->
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const menuClose = document.getElementById('menuClose');
+    const navMenu = document.getElementById('navMenu');
+    const menuBackdrop = document.getElementById('menuBackdrop');
+
+    function openDrawer() {
+      if (navMenu && menuBackdrop) {
+        navMenu.classList.add('open');
+        menuBackdrop.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeDrawer() {
+      if (navMenu && menuBackdrop) {
+        navMenu.classList.remove('open');
+        menuBackdrop.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    if (menuToggle && menuClose && navMenu && menuBackdrop) {
+      menuToggle.addEventListener('click', openDrawer);
+      menuClose.addEventListener('click', closeDrawer);
+      menuBackdrop.addEventListener('click', closeDrawer);
+    }
+  </script>
+
+</body>
+</html>

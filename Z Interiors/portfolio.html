@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio & Project Showcase | Z Home Interiors</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    /* ==========================================================================
+       1. LUXURY PALETTE
+       ========================================================================== */
+    :root {
+      --gold-primary: #D4AF37;
+      --gold-light: #F3E0B5;
+      --gold-champagne: #E5C378;
+      --gold-dark: #9E7B4F;
+      --gold-glow: rgba(212, 175, 55, 0.28);
+      
+      --bg-dark: #0B1017;
+      --bg-surface: rgba(11, 16, 23, 0.78);
+      --bg-card: rgba(15, 21, 30, 0.85);
+      --border-gold: rgba(229, 195, 120, 0.35);
+      --border-light: rgba(255, 255, 255, 0.1);
+      
+      --text-bright: #FFFFFF;
+      --text-soft: #CBD5E1;
+      --text-muted: #94A3B8;
+      
+      --font-heading: 'Cinzel', serif;
+      --font-subheading: 'Montserrat', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      min-height: 100%;
+      width: 100%;
+      font-family: var(--font-body);
+      background-color: var(--bg-dark);
+      color: var(--text-bright);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* PROFILE DETAILS BANNER ABOVE CONTENT */
+    .profile-details-banner {
+      background: rgba(15, 21, 30, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-gold);
+      border-radius: 16px;
+      padding: 1.2rem 2rem;
+      margin-top: 80px; 
+  margin-bottom: 2rem;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .profile-details-banner h2 {
+      font-family: var(--font-subheading);
+      color: var(--gold-champagne);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.5px;
+    }
+
+    .profile-details-banner p {
+      color: var(--text-soft);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .location-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 1rem;
+    }
+
+    .loc-tag {
+      font-size: 0.78rem;
+      background: rgba(212, 175, 55, 0.15);
+      color: var(--gold-light);
+      padding: 0.35rem 0.85rem;
+      border-radius: 20px;
+      border: 1px solid rgba(229, 195, 120, 0.3);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .loc-tag i {
+      color: var(--gold-champagne);
+      font-size: 0.75rem;
+    }
+
+    /* ==========================================================================
+       2. BACKGROUND SLIDESHOW & OVERLAY
+       ========================================================================== */
+    .slideshow-container {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-repeat: no-repeat;
+      opacity: 0;
+      animation: slideFade 30s infinite ease-in-out;
+      filter: contrast(105%) brightness(82%) saturate(108%);
+      will-change: opacity, transform;
+    }
+
+    .slide-1 { background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1920&q=80'); animation-delay: 0s; }
+    .slide-2 { background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1920&q=80'); animation-delay: 5s; }
+    .slide-3 { background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1920&q=80'); animation-delay: 10s; }
+    .slide-4 { background-image: url('https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=1920&q=80'); animation-delay: 15s; }
+    .slide-5 { background-image: url('https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1920&q=80'); animation-delay: 20s; }
+    .slide-6 { background-image: url('https://images.unsplash.com/photo-1558036117-15d82a90b9b1?auto=format&fit=crop&w=1920&q=80'); animation-delay: 25s; }
+
+    @keyframes slideFade {
+      0% { opacity: 0; transform: scale(1); }
+      3.3% { opacity: 1; }
+      16.6% { opacity: 1; }
+      20% { opacity: 0; transform: scale(1.05); }
+      100% { opacity: 0; transform: scale(1); }
+    }
+
+    .bg-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2;
+      background: radial-gradient(circle at 50% 50%, rgba(11, 16, 23, 0.88) 0%, rgba(11, 16, 23, 0.72) 70%, rgba(11, 16, 23, 0.6) 100%);
+      pointer-events: none;
+    }
+
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(140px);
+      z-index: 3;
+      pointer-events: none;
+      animation: orbFloat 22s infinite alternate ease-in-out;
+    }
+
+    .orb-1 {
+      top: -10%; right: -5%; width: 480px; height: 480px;
+      background: radial-gradient(circle, var(--gold-glow), transparent 70%);
+    }
+
+    .orb-2 {
+      bottom: -15%; left: -5%; width: 520px; height: 520px;
+      background: radial-gradient(circle, rgba(158, 123, 79, 0.18), transparent 70%);
+    }
+
+    /* ==========================================================================
+       3. NAVIGATION BAR (DESKTOP)
+       ========================================================================== */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(11, 16, 23, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-light);
+      padding: 0.9rem 0;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo-icon {
+      width: 32px;
+      height: 32px;
+      filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.4));
+    }
+
+    .nav-logo-text {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      background: linear-gradient(90deg, #FFFFFF 0%, #FFF5D8 35%, #E5C378 70%, #D4AF37 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 10px rgba(212, 175, 55, 0.25);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      position: relative;
+      text-decoration: none;
+      color: var(--text-soft);
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      padding: 0.5rem 0;
+      transition: var(--transition-smooth);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--gold-champagne);
+      text-shadow: 0 0 8px rgba(229, 195, 120, 0.4);
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold-champagne), transparent);
+      box-shadow: 0 0 8px var(--gold-champagne);
+      border-radius: 2px;
+    }
+
+    .whatsapp-btn-nav {
+      background: #10B981;
+      color: #FFFFFF !important;
+      padding: 0.5rem 1.1rem;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+      transition: var(--transition-smooth);
+    }
+
+    .whatsapp-btn-nav:hover {
+      background: #059669;
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       4. HAMBURGER & SLIDE-OUT DRAWER SYSTEM
+       ========================================================================== */
+    .hamburger-btn,
+    .drawer-close-item,
+    .drawer-backdrop {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .nav-container {
+        padding: 0.8rem 1.5rem;
+      }
+
+      .hamburger-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(212, 175, 55, 0.12);
+        border: 1px solid var(--border-gold);
+        color: var(--gold-champagne);
+        font-size: 1.35rem;
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: var(--transition-smooth);
+      }
+
+      .hamburger-btn:hover {
+        background: var(--gold-primary);
+        color: #0B1017;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -320px;
+        width: 290px;
+        height: 100vh;
+        background: rgba(11, 16, 23, 0.98);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border-left: 1px solid var(--border-gold);
+        box-shadow: -15px 0 35px rgba(0, 0, 0, 0.75);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem 1.8rem;
+        gap: 1.2rem;
+        z-index: 1001;
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        overflow-y: auto;
+      }
+
+      .nav-links.open {
+        right: 0;
+      }
+
+      .drawer-close-item {
+        display: block;
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+
+      .drawer-close-btn {
+        background: transparent;
+        border: none;
+        color: var(--gold-champagne);
+        font-size: 2rem;
+        cursor: pointer;
+        line-height: 1;
+        float: right;
+      }
+
+      .nav-item {
+        width: 100%;
+      }
+
+      .nav-link {
+        font-size: 1.1rem;
+        padding: 0.7rem 0;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .whatsapp-btn-nav {
+        width: 100%;
+        justify-content: center;
+        margin-top: 1rem;
+        padding: 0.8rem 1rem;
+      }
+
+      .drawer-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(4px);
+        z-index: 1000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .drawer-backdrop.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .orb {
+        filter: blur(80px);
+        opacity: 0.5;
+      }
+    }
+
+    /* ==========================================================================
+       5. MAIN PAGE CONTENT & SECTIONS
+       ========================================================================== */
+    .content-wrapper {
+      position: relative;
+      z-index: 10;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: 2px;
+      background: linear-gradient(135deg, #FFFFFF 0%, #F3E0B5 50%, #D4AF37 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    .glass-panel {
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-gold);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.08);
+      margin-bottom: 3.5rem;
+    }
+
+    /* ==========================================================================
+       6. CATEGORY FILTER BUTTONS
+       ========================================================================== */
+    .filter-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 2.2rem;
+    }
+
+    .filter-btn {
+      background: rgba(11, 16, 23, 0.6);
+      color: var(--text-soft);
+      border: 1px solid var(--border-light);
+      padding: 0.6rem 1.3rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: linear-gradient(135deg, #D4AF37 0%, #9E7B4F 100%);
+      color: #FFFFFF;
+      border-color: var(--gold-champagne);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    }
+
+    /* ==========================================================================
+       7. PORTFOLIO GRID & CARDS
+       ========================================================================== */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .project-card {
+      background: rgba(11, 16, 23, 0.75);
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-smooth);
+    }
+
+    .project-card:hover {
+      border-color: var(--gold-champagne);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.6), 0 0 20px rgba(212, 175, 55, 0.2);
+    }
+
+    .project-img-wrapper {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .project-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .project-card:hover .project-img-wrapper img {
+      transform: scale(1.08);
+    }
+
+    .project-tag-overlay {
+      position: absolute;
+      bottom: 12px; left: 12px;
+      background: rgba(11, 16, 23, 0.85);
+      border: 1px solid var(--border-gold);
+      color: var(--gold-light);
+      font-size: 0.72rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 15px;
+      font-weight: 600;
+    }
+
+    .project-card-body {
+      padding: 1.4rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-card-body h3 {
+      font-family: var(--font-subheading);
+      font-size: 1.15rem;
+      color: var(--text-bright);
+      margin-bottom: 0.4rem;
+    }
+
+    .project-card-body p {
+      font-size: 0.86rem;
+      color: var(--text-soft);
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    .project-specs {
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(229, 195, 120, 0.2);
+      border-radius: 8px;
+      padding: 0.7rem;
+      font-size: 0.76rem;
+      color: var(--gold-light);
+      margin-bottom: 1.2rem;
+    }
+
+    .gold-btn-sm {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      background: linear-gradient(135deg, #D4AF37 0%, #B89355 100%);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 0.65rem 1.2rem;
+      border-radius: 25px;
+      transition: var(--transition-smooth);
+    }
+
+    .gold-btn-sm:hover {
+      background: linear-gradient(135deg, #E5C378 0%, #D4AF37 100%);
+      box-shadow: 0 0 15px rgba(229, 195, 120, 0.4);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border-light);
+      padding: 2.5rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      background: rgba(11, 16, 23, 0.95);
+      position: relative;
+      z-index: 10;
+    }
+
+    @keyframes orbFloat {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(30px, -30px); }
+    }
+
+    @media (max-width: 900px) {
+      .glass-panel { padding: 1.8rem 1.4rem; }
+    }
+
+    @media (max-width: 640px) {
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .filter-tabs { gap: 6px; }
+      .filter-btn { padding: 0.5rem 1rem; font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BACKGROUND SLIDESHOW -->
+  <div class="slideshow-container">
+    <div class="slide slide-1"></div>
+    <div class="slide slide-2"></div>
+    <div class="slide slide-3"></div>
+    <div class="slide slide-4"></div>
+    <div class="slide slide-5"></div>
+    <div class="slide slide-6"></div>
+  </div>
+
+  <div class="bg-overlay"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <!-- NAVIGATION BAR -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <svg class="nav-logo-icon" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="navGold" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FFF0C7" />
+              <stop offset="50%" stop-color="#D4AF37" />
+              <stop offset="100%" stop-color="#8C6A32" />
+            </linearGradient>
+          </defs>
+          <path d="M25 20 H120 L108 36 H50 L25 20 Z" fill="url(#navGold)" />
+          <path d="M108 36 L20 120 H40 L118 36 Z" fill="url(#navGold)" />
+          <path d="M20 120 L120 120 L120 134 L5 134 L108 36 H90 Z" fill="url(#navGold)" />
+          <path d="M25 70 L60 42 L70 50 L38 78 Z" fill="url(#navGold)" />
+          <path d="M60 42 L100 74 L92 82 L60 55 Z" fill="url(#navGold)" />
+          <path d="M60 55 V120 H50 V64 Z" fill="url(#navGold)" />
+          <path d="M96 72 L125 97 L117 104 L92 80 Z" fill="url(#navGold)" />
+          <rect x="90" y="86" width="8" height="8" fill="url(#navGold)" rx="1"/>
+          <rect x="101" y="86" width="8" height="8" fill="url(#navGold)" rx="1"/>
+          <rect x="90" y="97" width="8" height="8" fill="url(#navGold)" rx="1"/>
+          <rect x="101" y="97" width="8" height="8" fill="url(#navGold)" rx="1"/>
+        </svg>
+        <span class="nav-logo-text">Z HOME INTERIORS</span>
+      </a>
+
+      <!-- HAMBURGER BUTTON (Hidden on laptops, visible on mobile) -->
+      <button class="hamburger-btn" id="menuToggle" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <!-- NAVIGATION DRAWER -->
+      <ul class="nav-links" id="navMenu">
+        <!-- Close button inside drawer on mobile -->
+        <li class="drawer-close-item">
+          <button class="drawer-close-btn" id="menuClose" aria-label="Close menu">&times;</button>
+        </li>
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="company.html" class="nav-link">Company</a></li>
+        <li class="nav-item"><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
+        <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        <li class="nav-item">
+          <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20would%20like%20to%20inquire%20about%20interior%20design%20services." target="_blank" rel="noopener noreferrer" class="whatsapp-btn-nav">
+            <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- DIMMED BACKDROP FOR MOBILE -->
+    <div class="drawer-backdrop" id="menuBackdrop"></div>
+  </header>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="content-wrapper">
+
+    <!-- PROFILE DETAILS BANNER -->
+    <div class="profile-details-banner">
+      <h2>Sameer S | Interior Designer</h2>
+      <p>Explore our Completed Residential & Commercial Transformations Across Our Regional Locations</p>
+      <div class="location-tags">
+        <span class="loc-tag"><i class="fa-solid fa-location-dot"></i> Nandyal</span>
+        <span class="loc-tag"><i class="fa-solid fa-location-dot"></i> Kurnool</span>
+        <span class="loc-tag"><i class="fa-solid fa-location-dot"></i> Giddalur</span>
+        <span class="loc-tag"><i class="fa-solid fa-location-dot"></i> Markapur</span>
+        <span class="loc-tag"><i class="fa-solid fa-location-dot"></i> Nandikotkur</span>
+        <span class="loc-tag"><i class="fa-solid fa-location-dot"></i> Atmakur</span>
+      </div>
+    </div>
+
+    <!-- FILTERABLE PROJECT GALLERY -->
+    <section class="glass-panel">
+      <div class="section-header">
+        <h2 class="section-title">PROJECT GALLERY </h2>
+        <p class="section-subtitle">Browse through selected interior and exterior execution highlights.</p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs">
+        <button class="filter-btn active" onclick="filterProjects('all', this)">All Projects </button>
+        <button class="filter-btn" onclick="filterProjects('bathroom', this)">Bathrooms </button>
+        <button class="filter-btn" onclick="filterProjects('dining', this)">Dining & Kitchen </button>
+        <button class="filter-btn" onclick="filterProjects('office', this)">Workspaces </button>
+        <button class="filter-btn" onclick="filterProjects('living', this)">Living Rooms </button>
+        <button class="filter-btn" onclick="filterProjects('bedroom', this)">Bedrooms & Wardrobes </button>
+        <button class="filter-btn" onclick="filterProjects('garden', this)">Garden & Outdoor </button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="portfolio-grid" id="portfolioGrid">
+
+        <!-- ==================== CATEGORY 1: BATHROOMS ==================== -->
+        <div class="project-card" data-category="bathroom">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Master Bathroom">
+            <span class="project-tag-overlay"><i class="fa-solid fa-location-dot"></i> Nandyal Urban</span>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <h3>01. Luxury Master Bathroom</h3>
+              <p>Waterproof design with concealed Jaquar fittings and anti-skid Italian finish tile work.</p>
+              <div class="project-specs"><strong>Specs:</strong> BWP Marine Plywood, Kohler Fixtures, Glass Enclosure.</div>
+            </div>
+            <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20am%20interested%20in%20Luxury%20Master%20Bathroom%20(Nandyal)." target="_blank" rel="noopener noreferrer" class="gold-btn-sm"><i class="fa-brands fa-whatsapp"></i> Inquire Design</a>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="bathroom">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=600&q=80" alt="Powder Room">
+            <span class="project-tag-overlay"><i class="fa-solid fa-location-dot"></i> Nandikotkur</span>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <h3>02. Guest Powder Restroom</h3>
+              <p>Compact half bath with marble counter vanity and back-lit ambient LED mirror.</p>
+              <div class="project-specs"><strong>Specs:</strong> Italian Marble, Touch Sensor Mirror, Concealed Plumbing.</div>
+            </div>
+            <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20am%20interested%20in%20Guest%20Powder%20Restroom%20(Nandikotkur)." target="_blank" rel="noopener noreferrer" class="gold-btn-sm"><i class="fa-brands fa-whatsapp"></i> Inquire Design</a>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="bathroom">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=600&q=80" alt="Minimal Bath">
+            <span class="project-tag-overlay"><i class="fa-solid fa-location-dot"></i> Giddalur</span>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <h3>03. Minimalist Full Bath</h3>
+              <p>Clean white subway tile walls with brass golden tapware and frameless glass partition.</p>
+              <div class="project-specs"><strong>Specs:</strong> Ceramic Wall Tiles, Golden Brass Fittings, Quartz Counter.</div>
+            </div>
+            <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20am%20interested%20in%20Minimalist%20Full%20Bath%20(Giddalur)." target="_blank" rel="noopener noreferrer" class="gold-btn-sm"><i class="fa-brands fa-whatsapp"></i> Inquire Design</a>
+          </div>
+        </div>
+
+        <!-- ==================== CATEGORY 2: DINING & KITCHEN ==================== -->
+        <div class="project-card" data-category="dining">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=600&q=80" alt="Formal Dining">
+            <span class="project-tag-overlay"><i class="fa-solid fa-location-dot"></i> Kurnool</span>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <h3>04. Contemporary Dining Setup</h3>
+              <p>Custom crockery cabinet with tinted glass and warm pendant chandelier illumination.</p>
+              <div class="project-specs"><strong>Specs:</strong> Teakwood Polish, Acoustic Wall Panels, Quartz Tabletop.</div>
+            </div>
+            <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20am%20interested%20in%20Contemporary%20Dining%20(Kurnool)." target="_blank" rel="noopener noreferrer" class="gold-btn-sm"><i class="fa-brands fa-whatsapp"></i> Inquire Design</a>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="dining">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=600&q=80" alt="Eat-in Kitchen">
+            <span class="project-tag-overlay"><i class="fa-solid fa-location-dot"></i> Markapur</span>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <h3>05. Modular Breakfast Kitchen</h3>
+              <p>Acrylic soft-close modular shutters paired with a spacious kitchen island breakfast bar.</p>
+              <div class="project-specs"><strong>Specs:</strong> Granite Countertops, Blum Soft-close Hardware.</div>
+            </div>
+            <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20am%20interested%20in%20Modular%20Breakfast%20Kitchen%20(Markapur)." target="_blank" rel="noopener noreferrer" class="gold-btn-sm"><i class="fa-brands fa-whatsapp"></i> Inquire Design</a>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="dining">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=600&q=80" alt="Modern Kitchen">
+            <span class="project-tag-overlay"><i class="fa-solid fa-location-dot"></i> Nandyal Rural</span>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <h3>06. Luxury Island Modular Kitchen</h3>
+              <p>Handleless gloss finishes with integrated chimney, built-in oven, and pull-out pantry.</p>
+              <div class="project-specs"><strong>Specs:</strong> Hettich Tandem Drawers, Kalinga Quartz Stone.</div>
+            </div>
+            <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20am%20interested%20in%20Luxury%20Island%20Kitchen%20(Nandyal)." target="_blank" rel="noopener noreferrer" class="gold-btn-sm"><i class="fa-brands fa-whatsapp"></i> Inquire Design</a>
+          </div>
+        </div>
+
+        <!-- ==================== CATEGORY 3: WORKSPACES ==================== -->
+        <div class="project-card" data-category="office">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&q=80" alt="Executive Office">
+            <span class="project-tag-overlay"><i class="fa-solid fa-location-dot"></i> Giddalur</span>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <h3>07. Executive Director Cabin</h3>
+              <p>Ergonomic desk setup with wire routing management and natural veneer library shelving.</p>
+              <div class="project-specs"><strong>Specs:</strong> Commercial Plywood, Toughened Glass, Veneer Polish.</div>
+            </div>
+            <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20am%20interested%20in%20Executive%20Director%20Cabin%20(Giddalur)." target="_blank" rel="noopener noreferrer" class="gold-btn-sm"><i class="fa-brands fa-whatsapp"></i> Inquire Design</a>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="office">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" alt="Conference Room">
+            <span class="project-tag-overlay"><i class="fa-solid fa-location-dot"></i> Nandyal Urban</span>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <h3>08. Modern Conference Room</h3>
+              <p>Acoustic wall panelling, integrated AV presentation wall, and central conference desk.</p>
+              <div class="project-specs"><strong>Specs:</strong> Modular Metal Framing, Acoustic Cladding, Anti-glare Grid Lights.</div>
+            </div>
+            <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20am%20interested%20in%20Modern%20Conference%20Room%20(Nandyal)." target="_blank" rel="noopener noreferrer" class="gold-btn-sm"><i class="fa-brands fa-whatsapp"></i> Inquire Design</a>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="office">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1593062096033-9a26b09da705?auto=format&fit=crop&w=600&q=80" alt="Home Office">
+            <span class="project-tag-overlay"><i class="fa-solid fa-location-dot"></i> Kurnool</span>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <h3>09. Minimalist Home Workspace</h3>
+              <p>Floating desk setup with pinboard backing wall and concealed LED task lighting strip.</p>
+              <div class="project-specs"><strong>Specs:</strong> Matte Laminate Desk, Soft Cork Pinboard, Aluminum Channels.</div>
+            </div>
+            <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20am%20interested%20in%20Minimalist%20Home%20Office%20(Kurnool)." target="_blank" rel="noopener noreferrer" class="gold-btn-sm"><i class="fa-brands fa-whatsapp"></i> Inquire Design</a>
+          </div>
+        </div>
+
+        <!-- ==================== CATEGORY 4: LIVING ROOMS ==================== -->
+        <div class="project-card" data-category="living">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=600&q=80" alt="Living Room">
+            <span class="project-tag-overlay"><i class="fa-solid fa-location-dot"></i> Atmakur</span>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <h3>10. Royal Living Hall Decor</h3>
+              <p>Louvers wall paneling with integrated TV unit console and cove false ceiling lights.</p>
+              <div class="project-specs"><strong>Specs:</strong> Charcoal Louvers, HDMR TV Unit, LED Warm Strips.</div>
+            </div>
+            <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20am%20interested%20in%20Royal%20Living%20Hall%20(Atmakur)." target="_blank" rel="noopener noreferrer" class="gold-btn-sm"><i class="fa-brands fa-whatsapp"></i> Inquire Design</a>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="living">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80" alt="Modern Villa Hall">
+            <span class="project-tag-overlay"><i class="fa-solid fa-location-dot"></i> Nandyal Urban</span>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <h3>11. Contemporary Villa Living Room</h3>
+              <p>Double-height ceiling hall with marble accent wall cladding and custom L-shaped sofa.</p>
+              <div class="project-specs"><strong>Specs:</strong> Italian Marble Accent, Velvet Fabric Sofa, Chandelier Ceiling.</div>
+            </div>
+            <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20am%20interested%20in%20Contemporary%20Villa%20Living%20Room%20(Nandyal)." target="_blank" rel="noopener noreferrer" class="gold-btn-sm"><i class="fa-brands fa-whatsapp"></i> Inquire Design</a>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="living">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=80" alt="Cozy Hall">
+            <span class="project-tag-overlay"><i class="fa-solid fa-location-dot"></i> Kurnool</span>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <h3>12. Warm Cozy Apartment Lounge</h3>
+              <p>Neutral earth-toned hall setup featuring floating wooden TV shelf and wall art sconces.</p>
+              <div class="project-specs"><strong>Specs:</strong> Oak Laminate, Gypsum False Ceiling, Brass Wall Sconces.</div>
+            </div>
+            <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20am%20interested%20in%20Warm%20Cozy%20Lounge%20(Kurnool)." target="_blank" rel="noopener noreferrer" class="gold-btn-sm"><i class="fa-brands fa-whatsapp"></i> Inquire Design</a>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="living">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=600&q=80" alt="Minimal Living">
+            <span class="project-tag-overlay"><i class="fa-solid fa-location-dot"></i> Markapur</span>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <h3>13. Minimalist Wooden Living Space</h3>
+              <p>Clean lines, concealed storage cabinets, and floor-to-ceiling sheer curtain drapes.</p>
+              <div class="project-specs"><strong>Specs:</strong> Teak Finish Panels, Motorized Curtains, Ceiling Spotlights.</div>
+            </div>
+            <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20am%20interested%20in%20Minimalist%20Wooden%20Living%20(Markapur)." target="_blank" rel="noopener noreferrer" class="gold-btn-sm"><i class="fa-brands fa-whatsapp"></i> Inquire Design</a>
+          </div>
+        </div>
+
+        <!-- ==================== CATEGORY 5: BEDROOMS & WARDROBES ==================== -->
+        <div class="project-card" data-category="bedroom">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=600&q=80" alt="Master Bedroom">
+            <span class="project-tag-overlay"><i class="fa-solid fa-location-dot"></i> Nandyal Rural</span>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <h3>14. Cozy Master Bedroom Suite</h3>
+              <p>Upholstered headboard backdrop paired with warm cove ceiling illumination and wooden accents.</p>
+              <div class="project-specs"><strong>Specs:</strong> Teak Veneer, Plush Fabric Cushioning, Warm LED Strips.</div>
+            </div>
+            <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20am%20interested%20in%20Cozy%20Master%20Bedroom%20(Nandyal)." target="_blank" rel="noopener noreferrer" class="gold-btn-sm"><i class="fa-brands fa-whatsapp"></i> Inquire Design</a>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="bedroom">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=600&q=80" alt="Walk-in Wardrobe">
+            <span class="project-tag-overlay"><i class="fa-solid fa-location-dot"></i> Kurnool</span>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <h3>15. Modular Walk-In Wardrobe</h3>
+              <p>Tinted glass shutters with integrated sensor LED strip lights and soft-close drawer organizers.</p>
+              <div class="project-specs"><strong>Specs:</strong> HDMR Board, Aluminum Glass Profiles, Hettich Fittings.</div>
+            </div>
+            <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20am%20interested%20in%20Modular%20Walk-In%20Wardrobe%20(Kurnool)." target="_blank" rel="noopener noreferrer" class="gold-btn-sm"><i class="fa-brands fa-whatsapp"></i> Inquire Design</a>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="bedroom">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=600&q=80" alt="Luxury King Suite">
+            <span class="project-tag-overlay"><i class="fa-solid fa-location-dot"></i> Giddalur</span>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <h3>16. Luxury King Bedroom Suite</h3>
+              <p>Full-height upholstered accent wall with side mirror symmetry and hanging pendant nightstands.</p>
+              <div class="project-specs"><strong>Specs:</strong> Velvet Cushioning, Tinted Mirror Strips, Soft Mattress Base.</div>
+            </div>
+            <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20am%20interested%20in%20Luxury%20King%20Bedroom%20(Giddalur)." target="_blank" rel="noopener noreferrer" class="gold-btn-sm"><i class="fa-brands fa-whatsapp"></i> Inquire Design</a>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="bedroom">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80" alt="Sliding Wardrobe">
+            <span class="project-tag-overlay"><i class="fa-solid fa-location-dot"></i> Nandikotkur</span>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <h3>17. Modern Sliding Door Wardrobe</h3>
+              <p>Space-saving floor-to-ceiling sliding wardrobe with lacquered glass and wood grain shutters.</p>
+              <div class="project-specs"><strong>Specs:</strong> Soft-close Sliding Tracks, Lacquered Glass Panels.</div>
+            </div>
+            <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20am%20interested%20in%20Sliding%20Door%20Wardrobe%20(Nandikotkur)." target="_blank" rel="noopener noreferrer" class="gold-btn-sm"><i class="fa-brands fa-whatsapp"></i> Inquire Design</a>
+          </div>
+        </div>
+
+        <!-- ==================== CATEGORY 6: GARDEN & OUTDOOR ==================== -->
+        <div class="project-card" data-category="garden">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1558036117-15d82a90b9b1?auto=format&fit=crop&w=600&q=80" alt="Patio Garden">
+            <span class="project-tag-overlay"><i class="fa-solid fa-location-dot"></i> Nandyal Rural</span>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <h3>18. Private Outdoor Patio Deck</h3>
+              <p>Weatherproof composite deck flooring with outdoor seating furniture and vertical wall greenery.</p>
+              <div class="project-specs"><strong>Specs:</strong> WPC Composite Decking, Synthetic Lawn Turf.</div>
+            </div>
+            <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20am%20interested%20in%20Private%20Outdoor%20Patio%20(Nandyal)." target="_blank" rel="noopener noreferrer" class="gold-btn-sm"><i class="fa-brands fa-whatsapp"></i> Inquire Design</a>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="garden">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Courtyard Garden">
+            <span class="project-tag-overlay"><i class="fa-solid fa-location-dot"></i> Kurnool</span>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <h3>19. Villa Front Courtyard Garden</h3>
+              <p>Paved stone walkways with ambient garden bollard lighting and drought-tolerant planter beds.</p>
+              <div class="project-specs"><strong>Specs:</strong> Natural Granite Cobblestones, IP67 Waterproof Lights.</div>
+            </div>
+            <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20am%20interested%20in%20Villa%20Front%20Courtyard%20(Kurnool)." target="_blank" rel="noopener noreferrer" class="gold-btn-sm"><i class="fa-brands fa-whatsapp"></i> Inquire Design</a>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="garden">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="Elevation Garden">
+            <span class="project-tag-overlay"><i class="fa-solid fa-location-dot"></i> Atmakur</span>
+          </div>
+          <div class="project-card-body">
+            <div>
+              <h3>20. Modern Elevation & Lawn Garden</h3>
+              <p>Exterior louvers elevation cladding integrated with a manicured front lawn landscape.</p>
+              <div class="project-specs"><strong>Specs:</strong> Exterior HPL Panels, Weather-resistant Exterior Paint.</div>
+            </div>
+            <a href="https://wa.me/919182593313?text=Hi%20Sameer,%20I%20am%20interested%20in%20Modern%20Elevation%20Garden%20(Atmakur)." target="_blank" rel="noopener noreferrer" class="gold-btn-sm"><i class="fa-brands fa-whatsapp"></i> Inquire Design</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Z Home Interiors (Nandyal). All rights reserved. </p>
+  </footer>
+
+  <!-- JAVASCRIPT CONTROLLERS -->
+  <script>
+    // 1. Mobile Hamburger Slide-out Drawer
+    const menuToggle = document.getElementById('menuToggle');
+    const menuClose = document.getElementById('menuClose');
+    const navMenu = document.getElementById('navMenu');
+    const menuBackdrop = document.getElementById('menuBackdrop');
+
+    function openDrawer() {
+      if (navMenu && menuBackdrop) {
+        navMenu.classList.add('open');
+        menuBackdrop.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevents scrolling behind drawer
+      }
+    }
+
+    function closeDrawer() {
+      if (navMenu && menuBackdrop) {
+        navMenu.classList.remove('open');
+        menuBackdrop.classList.remove('active');
+        document.body.style.overflow = ''; // Restores scrolling
+      }
+    }
+
+    if (menuToggle && menuClose && navMenu && menuBackdrop) {
+      menuToggle.addEventListener('click', openDrawer);
+      menuClose.addEventListener('click', closeDrawer);
+      menuBackdrop.addEventListener('click', closeDrawer);
+    }
+
+    // 2. Category Filter Logic
+    function filterProjects(category, button) {
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      const cards = document.querySelectorAll('.project-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
